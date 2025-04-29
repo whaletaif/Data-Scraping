@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول | إنشاء حساب</title>
+  <link rel="stylesheet" href="signup.css">
+</head>
+<body>
+  
+  <img src="assets/search.png" alt="search logo" class="logo">
+
+  <div class="container">
+    <div class="tabs">
+      <button id="loginTab" class="active">تسجيل الدخول</button>
+      <button id="signupTab">إنشاء حساب</button>
+    </div>
+
+    <form id="form">
+      <input type="email" placeholder="البريد الالكتروني" id="email" required>
+      <input type="text" placeholder="الاسم" id="nameField" style="display: none;">
+      <input type="password" placeholder="كلمة المرور" id="password" required>
+      
+      <div class="buttons">
+        <button type="button" class="google-btn">
+          <img src="assets/google.png" alt="Google logo">
+        </button>
+        <button type="submit" class="continue-btn">استمرار</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="signup.js"></script>
+</body>
+</html>
