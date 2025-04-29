@@ -2,14 +2,14 @@ body {
     margin: 0;
     padding: 0;
     font-family: 'Arial', sans-serif;
-   
+    background: url("assets/background2.png") no-repeat center center fixed; /* or .png if needed */
     background-size: cover;
     height: 100vh;
     direction: rtl;
   }
   
   .logo {
-    width: 50px;
+    width: 108px;
     margin: 20px;
     position: absolute;
     top: 0;
@@ -17,7 +17,7 @@ body {
   }
   
   .container {
-    background: #f2f7f7;
+    background: #E9F3F4;
     width: 400px;
     margin: 100px auto;
     padding: 30px;
@@ -34,24 +34,45 @@ body {
   .tabs button {
     flex: 1;
     padding: 10px;
-    font-size: 16px;
+    font-size: 15px;
+    color: #075E72;
     background: none;
     border: 1px solid #aacaca;
     cursor: pointer;
     outline: none;
+    
+  }
+
+  #loginTab {
+    border-top-right-radius: 10px;
+  }
+  
+  #signupTab {
+    border-top-left-radius: 10px;
+  }
+
+  #loginTab {
+    border-bottom-right-radius: 10px;
+  }
+  
+  #signupTab {
+    border-bottom-left-radius: 10px;
   }
   
   .tabs .active {
-    background: #aacaca;
+    background: #A4D5DA;
   }
   
   form input {
     width: 90%;
     margin: 10px 0;
     padding: 10px;
-    border: 1px solid #aacaca;
-    border-radius: 5px;
+    border: 1px solid #80C1CF;
+    border-radius: 10px;
     background: transparent;
+    display: block; 
+    margin-right: auto;
+    margin-left: auto;
   }
   
   .buttons {
@@ -59,25 +80,30 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    gap: 15px;
   }
   
   .google-btn {
     background: none;
-    border: 1px solid #aacaca;
+    border: 1px solid #80C1CF;
     padding: 8px;
     margin-left: 10px;
     cursor: pointer;
     border-radius: 5px;
+    width: 80px;
   }
   
   .google-btn img {
     width: 20px;
   }
-  
+ 
   .continue-btn {
     background: #aacaca;
     border: none;
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
+    width: 80px;
+    color: #075E72;
+    font-size: 15px;
   }
