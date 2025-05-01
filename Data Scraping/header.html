@@ -1,0 +1,30 @@
+<html>
+<html lang="ar">
+<link rel="stylesheet" href="header.css">
+<header>
+    <div>
+        <img class="logo" src="logo.png"/>
+        <nav>
+            <ul>
+                <li><a href="/"> من نحن؟ </a></li>
+                <li><a href="/about"> بحث </a></li>
+                <li><a href="/contact"> الصفحة الرئيسية</a></li>
+            </ul>
+
+            <div class="login-button">
+                <a href="">تسجيل</a>
+                <button class="signupbu">تسجيل الدخول</button>
+            </div>
+            <div class="line"></div>
+        </nav>
+    </div>
+</header>
+<script>
+    fetch('header.html')
+        .then(response => response.text())
+        .then(data => {
+            document.body.insertAdjacentHTML('afterbegin', data);
+        });
+</script>
+
+</html>

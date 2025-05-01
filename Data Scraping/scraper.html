@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ar">
+<link rel="stylesheet" href="header.css">
+<link rel="stylesheet" href="scraper.css">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>data scraper</title>
+    <div>
+        <img class="logo" src="logo.png" />
+        <nav>
+            <ul>
+                <li><a href="/"> من نحن؟ </a></li>
+                <li><a href="/about"> بحث </a></li>
+                <li><a href="mainpage.html"> الصفحة الرئيسية</a></li>
+            </ul>
+
+
+            <div class="login-button">
+                <a href="">تسجيل</a>
+                <button>تسجيل الدخول</button>
+            </div>
+            <div class="line"></div>
+        </nav>
+    </div>
+</head>
+
+<body>
+    <div class="back">
+        <p> رجوع </p>
+        <button class="backbutt"> <img src="backarrow.png" alt=""> </button>
+
+    </div>
+
+    <div class="info-card">
+        <div id="button-content">
+            <button id="schedule-button"> جدولة السحب </button>
+            <button id="api-button"> API </button>
+            <button> بدأ السحب </button>
+        </div>
+
+        <div id="api-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-button">&times;</span>
+                <h2>API</h2>
+                <div class="copy-link-container">
+                    <input type="text" value="https://example.com/api/data1" id="link1" readonly>
+                    <button class="copy-button" data-target="link1">
+                        <img src="copy.png">
+                    </button>
+                </div>
+                <div class="copy-link-container">
+                    <input type="text" value="https://example.com/api/users" id="link2" readonly>
+                    <button class="copy-button" data-target="link1">
+                        <img src="copy.png">
+                    </button>
+                </div>
+                <div class="copy-link-container">
+                    <input type="text" value="https://example.com/api/users" id="link2" readonly>
+                    <button class="copy-button" data-target="link1">
+                        <img src="copy.png">
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div id="schedule-popup" class="popup">
+            <div class="popup-content">
+                <span class="close-schedule-button">&times;</span>
+                <h1 id="sch">جدولة السحب</h1>
+                <div class="lines"></div>
+                <input type="text" placeholder=" اسم الجدوله ">
+                <textarea id="description" placeholder="وصف" name="description" rows="5" cols="50"></textarea>
+                <select id="schedule" name="schedule">
+                    <option value="daily">يومياً</option>
+                    <option value="monthly">شهرياً</option>
+                    <option value="yearly">سنوياً</option>
+                </select>
+                <button> ابدأ السحب </button>
+            </div>
+        </div>
+
+        <div class="text-content">
+            <h2>استخراج من خرائط قوقل</h2>
+            <p> .يمكنك سحب ١٠٠ مكان واكثر ب استخدام كلمات مفتاحيه ، اقسام ، مواقع. احصل على العناوين والبيانات والخ </p>
+        </div>
+        <div class="icon-container">
+            <img src="googlemaps.png">
+        </div>
+    </div>
+
+
+    <div class="tabs">
+
+        <div class="tab-2">
+            <label for="tab2-3">المشاكل</label>
+            <input id="tab2-3" name="tabs-two" type="radio">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th> الاخطاء </th>
+                        </tr>
+                    </thead>
+                    <tbody id="error-rows">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-2">
+            <label for="tab2-2">العمليات السابقه </label>
+            <input id="tab2-2" name="tabs-two" type="radio">
+            <div class="table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>حجم الملف</th>
+                            <th>النوع</th>
+                            <th>المدة</th>
+                            <th>وقت النهاية</th>
+                            <th>وقت البداية</th>
+                            <th>العدد</th>
+                            <th class="wide-column">الوصف</th>
+                        </tr>
+                    </thead>
+                    <tbody id="data-rows">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="tab-2">
+            <label for="tab2-1"> ادخال بيانات السحب </label>
+            <input id="tab2-1" name="tabs-two" type="radio" checked="checked">
+            <div>
+                <p> لاستخراج بيانات جهات الاتصال من أماكن جوجل، ما عليك سوى إدخال مصطلح البحث، وإضافة الموقع، و عدد
+                    الأماكن المراد استخراجها. يحتوي قسم الفلاتر على ميزات إضافية متنوعة، وفلاتر، وخيارات فرز </p>
+                <p></p>
+                <p>الأقسام التي تحمل علامة النجمة* هي مجرد طرق بديلة لبدء الإدخال ( معلمات الموقع الجغرافي، المضلعات،
+                    عناوين URL). يمكن دمجها مع أي من الميزات وخيارات الفرز من قسم "الفلاتر" </p>
+
+                <h3> ادخل عنوان بحثك </h3>
+                <div class="tag-card">
+                    <div class="tag-list">
+                    </div>
+                    <button id="add-tag-button">
+                        <span>+</span> إضافة
+                    </button>
+                </div>
+                <div class="loc">
+                    <h3 id="loca"> الموقع </h3>
+                    <input type="text" placeholder="المملكة العربية السعودية">
+                </div>
+                <div class="datacounter">
+                    <h3 id="dataco"> البيانات </h3>
+                    <div class="counter">
+                        <input type="number" id="number-input" value="50">
+                        <button class="increment-arrow"></button>
+                        <button class="decrement-arrow"></button>
+                    </div>
+                </div>
+
+                <div class="lang">
+                    <h3 id="lang"> اللغة </h3>
+                    <input type="text" placeholder="العربية">
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

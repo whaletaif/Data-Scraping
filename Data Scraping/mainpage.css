@@ -1,0 +1,54 @@
+.start{
+    background-image: url(background.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.start h1{
+    padding-top: 300px;
+    text-align: center;
+    font-size: 50px;
+    color: #075E72;
+}
+.start p{
+    padding: 50px;
+    text-align: center;
+    color: #075E72;
+    font-size: 30px;
+}
+.search-container{
+    padding: 50px;
+}
+.search {
+    background-color: white;
+    display: flex;
+    margin: 0 auto;
+    border-radius: 25px;
+    overflow: hidden; 
+    width: 1000px;
+    padding: 5px;
+}
+
+.search-input {
+    flex-grow: 1;
+    border: none; 
+    padding: 20px 25px;
+    font-size: 20px; 
+    outline: none; 
+    border-radius: 25px 0 0 25px;
+    text-align: right;
+}
+
+.search-button {
+    background-color: transparent; 
+    border: none;   
+    padding: 8px 15px; 
+    cursor: pointer; 
+    outline: none;  
+    border-radius: 25px ;
+}
+
+.search-button img {
+    width: 30px; 
+    height: 30px; 
+}

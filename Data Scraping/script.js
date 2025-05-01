@@ -1,0 +1,255 @@
+const radioButtons = document.querySelectorAll('.tabs [type="radio"]');
+const labels = document.querySelectorAll('.tabs label');
+
+radioButtons.forEach(radio => {
+    radio.addEventListener('change', () => {
+        labels.forEach(label => {
+            label.classList.remove('checked-label');
+        });
+        const checkedRadioId = radio.id;
+        const checkedLabel = document.querySelector(`label[for="${checkedRadioId}"]`);
+        if (checkedLabel) {
+            checkedLabel.classList.add('checked-label');
+        }
+    });
+});
+
+const initiallyChecked = document.querySelector('.tabs [type="radio"]:checked');
+if (initiallyChecked) {
+    const initialLabel = document.querySelector(`label[for="${initiallyChecked.id}"]`);
+    if (initialLabel) {
+        initialLabel.classList.add('checked-label');
+    }
+}
+
+const tagList = document.querySelector('.tag-list');
+const addTagButton = document.getElementById('add-tag-button');
+let tagCount = 0;
+
+function addTagItem() {
+    tagCount++;
+
+    const tagItem = document.createElement('div');
+    tagItem.classList.add('tag-item');
+
+    const tagNumber = document.createElement('span');
+    tagNumber.classList.add('tag-number');
+    tagNumber.textContent = tagCount;
+
+    const tagInput = document.createElement('input');
+    tagInput.type = 'text';
+    tagInput.classList.add('tag-input');
+    tagInput.placeholder = `مطعم `;
+
+    const removeButton = document.createElement('button');
+    removeButton.classList.add('remove-tag-button');
+    removeButton.textContent = 'X';
+    removeButton.addEventListener('click', removeTagItem);
+
+    tagItem.appendChild(removeButton);
+    tagItem.appendChild(tagInput);
+    tagItem.appendChild(tagNumber);
+
+    tagList.appendChild(tagItem);
+}
+
+function removeTagItem(event) {
+    const button = event.target;
+    const tagItem = button.parentNode;
+    tagList.removeChild(tagItem);
+
+
+    const remainingTags = tagList.querySelectorAll('.tag-item');
+    remainingTags.forEach((item, index) => {
+        const numberSpan = item.querySelector('.tag-number');
+        numberSpan.textContent = index + 1;
+    });
+    tagCount = remainingTags.length;
+}
+
+addTagButton.addEventListener('click', addTagItem);
+
+addTagItem();
+
+const numberInput = document.getElementById('number-input');
+const incrementButton = document.querySelector('.increment-arrow');
+const decrementButton = document.querySelector('.decrement-arrow');
+
+incrementButton.addEventListener('click', () => {
+    numberInput.value = parseInt(numberInput.value) + 1;
+});
+
+decrementButton.addEventListener('click', () => {
+    numberInput.value = parseInt(numberInput.value) - 1;
+});
+
+
+numberInput.addEventListener('change', () => {
+    if (parseInt(numberInput.value) < 0) {
+        numberInput.value = 0;
+    } else if (parseInt(numberInput.value) > 100) {
+        numberInput.value = 100;
+    }
+});
+
+
+const apiButton = document.getElementById('api-button');
+const apiPopup = document.getElementById('api-popup');
+const closeApiButton = document.querySelector('#api-popup .close-button'); 
+const copyButtons = document.querySelectorAll('.copy-button');
+const scheduleButton = document.getElementById('schedule-button');
+const schedulePopup = document.getElementById('schedule-popup');
+const closeScheduleButton = document.querySelector('#schedule-popup .close-schedule-button'); 
+
+function openApiPopup() {
+    apiPopup.style.display = 'flex';
+}
+
+
+function closeApiPopup() {
+    apiPopup.style.display = 'none';
+}
+
+function openSchedulePopup() {
+    schedulePopup.style.display = 'flex';
+}
+
+function closeSchedulePopup() {
+    schedulePopup.style.display = 'none';
+}
+closeScheduleButton.addEventListener('click', () => {
+    schedulePopup.style.display = 'none'; 
+});
+
+scheduleButton.addEventListener('click', () => {
+    schedulePopup.style.display = 'flex'; 
+});
+
+apiButton.addEventListener('click', openApiPopup);
+
+closeApiButton.addEventListener('click', closeApiPopup);
+closeApiPopupButton.addEventListener('click', closeApiPopup);
+
+scheduleButton.addEventListener('click', openSchedulePopup);
+
+closeScheduleButton.addEventListener('click', closeSchedulePopup);
+closeSchedulePopupButton.addEventListener('click', closeSchedulePopup);
+
+
+window.addEventListener('click', (event) => {
+    if (event.target === apiPopup) {
+        closeApiPopup();
+    }
+    if (event.target === schedulePopup) {
+        closeSchedulePopup();
+    }
+});
+
+copyButtons.forEach(button => {
+    button.addEventListener('click', () => {
+        const targetId = button.dataset.target;
+        const linkInput = document.getElementById(targetId);
+        if (linkInput) {
+            linkInput.select();
+            document.execCommand('copy');
+            alert('تم النسخ : ' + linkInput.value);
+        }
+    });
+});
+
+const tableData = [
+    {
+        description: 'نص طويل جداً يصف شيئًا ما بالتفصيل الممل.',
+        count: 50,
+        startTime: '2025-04-30 18:00',
+        endTime: '2025-04-30 18:30',
+        duration: '30 دقيقة',
+        type: 'تصدير',
+        fileSize: '2.5 MB'
+    },
+    {
+        description: 'وصف قصير.',
+        count: 45,
+        startTime: '2025-05-01 09:00',
+        endTime: '2025-05-01 10:00',
+        duration: '1 ساعة',
+        type: 'استيراد',
+        fileSize: '1.1 GB'
+    },
+];
+
+const dataRowsBody = document.getElementById('data-rows');
+
+function addTableRow(rowData) {
+    const newRow = dataRowsBody.insertRow();
+
+    const descriptionCell = newRow.insertCell();
+    descriptionCell.textContent = rowData.description;
+
+    const countCell = newRow.insertCell();
+    countCell.textContent = rowData.count;
+
+    const startTimeCell = newRow.insertCell();
+    startTimeCell.textContent = rowData.startTime;
+
+    const endTimeCell = newRow.insertCell();
+    endTimeCell.textContent = rowData.endTime;
+
+    const durationCell = newRow.insertCell();
+    durationCell.textContent = rowData.duration;
+
+    const typeCell = newRow.insertCell();
+    typeCell.textContent = rowData.type;
+
+    const fileSizeCell = newRow.insertCell();
+    fileSizeCell.textContent = rowData.fileSize;
+}
+
+tableData.forEach(item => {
+    addTableRow(item);
+});
+
+function addNewData(description, count, startTime, endTime, duration, type, fileSize) {
+    const newData = {
+        description: description,
+        count: count,
+        startTime: startTime,
+        endTime: endTime,
+        duration: duration,
+        type: type,
+        fileSize: fileSize
+    };
+    addTableRow(newData);
+}
+
+// addNewData('وصف جديد', 678, '2025-05-02 12:00', '2025-05-02 12:15', '15 دقيقة', 'تعديل', '500 KB');
+
+const errorData = [
+    { type: 'خطأ في الاتصال', count: 5 },
+    { type: 'خطأ في البيانات', count: 12 },
+    { type: 'خطأ في الخادم', count: 2 },
+    { type: 'أخطاء أخرى', count: 1 },
+];
+
+const errorRowsBody = document.getElementById('error-rows');
+
+function addErrorRow(errorInfo) {
+    const newRow = errorRowsBody.insertRow();
+
+    const typeCell = newRow.insertCell();
+    typeCell.textContent = errorInfo.type;
+
+    const countCell = newRow.insertCell();
+    countCell.textContent = errorInfo.count;
+}
+
+errorData.forEach(error => {
+    addErrorRow(error);
+});
+
+
+// function addNewError(errorType, errorCount) {
+//     const newError = { type: errorType, count: errorCount };
+//     addErrorRow(newError);
+// }
+// addNewError('خطأ جديد', 3);
