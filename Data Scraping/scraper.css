@@ -337,10 +337,11 @@ body {
     margin: 0;
 }
 .popup-content h1 {
- color: #075E72;
+    color: #075E72;
 
 }
-.line{
+
+.line {
     border-bottom: 2px solid #075E72;
     width: 100%;
 }
@@ -453,7 +454,7 @@ body {
 
 
 
-#schedule-popup .popup  {
+#schedule-popup .popup {
     display: none;
     position: fixed;
     top: 0;
@@ -466,7 +467,7 @@ body {
     align-items: center;
 }
 
-#schedule-popup .popup-content  {
+#schedule-popup .popup-content {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
@@ -491,7 +492,7 @@ body {
     cursor: pointer;
 }
 
-.popup-content input{
+.popup-content input {
     background-color: transparent;
     width: 450px;
     padding: 8px;
@@ -500,7 +501,8 @@ body {
     text-align: right;
     margin-bottom: 10px;
 }
-.popup-content #description{
+
+.popup-content #description {
     background-color: transparent;
     width: 462px;
     border: 1px solid #075E72;
@@ -519,7 +521,8 @@ body {
     text-align: right;
     direction: rtl;
 }
-#schedule-popup button{
+
+#schedule-popup button {
     padding: 13px;
     background-color: white;
     border: 1px solid #075E72;
@@ -528,7 +531,8 @@ body {
     font-size: 16px;
     align-self: flex-start;
 }
-#schedule-popup button:hover{
+
+#schedule-popup button:hover {
     background-color: #075E72;
     border: 1px solid white;
     color: #ffffff;
@@ -538,12 +542,15 @@ table {
     border-collapse: collapse;
     color: #075E72;
 }
-.table{
+
+.table {
     margin-top: 40px;
     border: 1px solid #075E72;
     border-radius: 25px;
 }
-th, td {
+
+th,
+td {
     border-bottom: 1px solid #075E72;
     padding: 8px;
     text-align: right;
@@ -554,5 +561,5 @@ th {
 }
 
 .wide-column {
-    width: 40%; 
+    width: 40%;
 }
