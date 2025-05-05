@@ -33,3 +33,20 @@ document.getElementById("tabApi").addEventListener("click", () => {
   document.getElementById("tabApi").classList.add("active");
   document.getElementById("tabMore").classList.remove("active");
 });
+
+function showContent(type) {
+  const tabMore = document.querySelector('.tab:nth-child(1)');
+  const tabApi = document.querySelector('.tab:nth-child(2)');
+  
+  if (type === 'info') {
+    document.getElementById("moreInfo").style.display = "block";
+    document.getElementById("apiInfo").style.display = "none";
+    tabMore.classList.add("active");
+    tabApi.classList.remove("active");
+  } else if (type === 'api') {
+    document.getElementById("moreInfo").style.display = "none";
+    document.getElementById("apiInfo").style.display = "block";
+    tabApi.classList.add("active");
+    tabMore.classList.remove("active");
+  }
+}
