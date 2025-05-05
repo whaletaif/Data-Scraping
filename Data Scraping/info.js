@@ -19,15 +19,17 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// التبديل بين "أعرف أكثر" و "API"
+// التبديل بين التابات
 document.getElementById("tabMore").addEventListener("click", () => {
   document.getElementById("moreInfo").style.display = "block";
+  document.getElementById("apiInfo").style.display = "none";
   document.getElementById("tabMore").classList.add("active");
   document.getElementById("tabApi").classList.remove("active");
 });
 
 document.getElementById("tabApi").addEventListener("click", () => {
   document.getElementById("moreInfo").style.display = "none";
+  document.getElementById("apiInfo").style.display = "block";
   document.getElementById("tabApi").classList.add("active");
   document.getElementById("tabMore").classList.remove("active");
 });

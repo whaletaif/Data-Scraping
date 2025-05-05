@@ -10,17 +10,18 @@
   <header class="top-bar">
     <div class="left-side">
       <a href="setting.html">
-        <img src="assets/person.png" alt="person" class="person-icon" />
+        <img src="assets/search.png" alt="logo" class="top-logo" />
       </a>
-      <span id="welcomeUser" class="username">مرحباً</span>
-    </div>
-
-    <div class="center-tabs">
       <a href="home.html" class="nav-btn">الصفحة الرئيسية</a>
       <a href="who.html" class="nav-btn">من نحن</a>
     </div>
-
-    <img src="assets/search.png" alt="logo" class="top-logo" />
+  
+    <div class="right-side", style="display: flex; align-items: center;">
+      <span id="welcomeUser" class="username">مرحباً</span>
+      <a href="setting.html">
+        <img src="assets/person.png" alt="person" class="person-icon" />
+      </a>
+    </div>
   </header>
 
   <!-- ✅ الخط تحت الشريط العلوي -->
@@ -66,19 +67,40 @@
     </ol>
   </div>
 
+  
+  <div class="content-box" id="apiInfo" style="display: none;">
+    <h3>API</h3>
+    <p>هنا الروابط راح تكون ووصف ال API</p>
+  </div>
+
+
+
   <footer class="footer">
     <img src="assets/background2.png" alt="footer background" class="footer-bg" />
-    <div class="contact">
-      <p>تواصل معنا</p>
-      <p>📞 055555</p>
-      <div class="social-icons">
-        <img src="assets/insta.png" alt="insta" />
-        <img src="assets/twitter.png" alt="twitter" />
-        <img src="assets/email.png" alt="email" />
+  
+    <div class="footer-content">
+      <!-- القسم الأيمن: الشعار والروابط -->
+      <div class="footer-right">
+        <img src="assets/search.png" alt="Logo" width="108" height="108" />
+        <div class="footer-links">
+          <a href="home.html">الرئيسية</a>
+          <a href="who.html">من نحن</a>
+        </div>
+      </div>
+  
+      <!-- القسم الأيسر: التواصل -->
+      <div class="footer-left">
+        <p>تواصل معنا</p>
+        <p>📞 055555</p>
+        <div class="social-icons">
+          <img src="assets/insta.png" alt="insta" />
+          <img src="assets/twitter.png" alt="twitter" />
+          <img src="assets/email.png" alt="email" />
+        </div>
       </div>
     </div>
   </footer>
-
+  
   <script type="module" src="info.js"></script>
 </body>
 </html>

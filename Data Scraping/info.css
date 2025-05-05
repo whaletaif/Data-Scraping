@@ -12,6 +12,7 @@ body {
     padding: 20px;
   }
   
+  
   .top-logo {
     width: 108px;
   }
@@ -113,24 +114,30 @@ body {
 }
 
 .top-logo {
-  width: 50px;
+  width: 108px;
 }
 
 .left-side {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.right-side {
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
 .person-icon {
-  width: 40px;
-  height: 40px;
+  width: 70px;
+  height: 70px;
   cursor: pointer;
   border-radius: 50%;
 }
 
 .username {
-  font-size: 18px;
+  font-size: 24px;
   font-weight: bold;
   color: #075E72;
 }
@@ -146,6 +153,7 @@ body {
   font-weight: bold;
   color: #075E72;
   transition: opacity 0.3s;
+  
 }
 
 .nav-btn:hover {
@@ -154,7 +162,107 @@ body {
 
 /* الخط تحت التاب بار */
 .top-divider {
-  height: 2px;
+  height: 0.5px;
   width: 100%;
   background-color: #075E72;
+}
+
+
+.content-box {
+  background-color: transparent !important;
+}
+
+.footer {
+  position: relative;
+  text-align: center;
+  padding: 50px 20px 80px;
+  height: 250px; /* Set a fixed height to contain background */
+  overflow: hidden; /* Prevent overflow outside footer */
+}
+
+.footer-bg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 120px; /* Shorter height */
+  object-fit: cover; /* Ensures the image fills the width properly */
+  z-index: -1;
+}
+
+.footer-content {
+  padding-top: 800px; /* Increase to push content downward */
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-direction: row-reverse;
+  padding: 0 40px;
+}
+
+.footer-right {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+
+.footer-btn {
+  background: none;
+  border: none;
+  color: #075E72;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.footer-btn:hover {
+  opacity: 0.7;
+}
+
+.footer-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: right;
+  
+}
+
+.contact-title {
+  font-size: 24px;
+  font-weight: bold;
+  color: #075E72;
+}
+
+.footer .social-icons img {
+  width: 25px;
+  margin: 5px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 50px;
+  text-align: right;
+  direction: rtl;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+}
+
+.footer-links a {
+  color: #075E72;
+  font-size: 24px;
+  text-decoration: none;
 }
