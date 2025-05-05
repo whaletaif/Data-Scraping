@@ -9,18 +9,23 @@
 
   <header class="top-bar">
     <div class="left-side">
-      <a href="setting.html">
-        <img src="assets/person.png" alt="person" class="person-icon" />
-      </a>
-      <span id="welcomeUser" class="username">مرحباً</span>
+      
     </div>
 
-    <div class="center-tabs">
+    <div class="left-side">
+      <img src="assets/search.png" alt="logo" class="top-logo" />
       <a href="home.html" class="nav-btn">الصفحة الرئيسية</a>
       <a href="who.html" class="nav-btn">من نحن</a>
     </div>
 
-    <img src="assets/search.png" alt="logo" class="top-logo" />
+    
+    <div class="right-side">
+    <a href="setting.html">
+      <img src="assets/person.png" alt="person" class="person-icon" />
+    </a>
+    <span id="welcomeUser" class="username">مرحباً</span>
+    </div>
+
   </header>
 
   <!-- ✅ الخط تحت الشريط العلوي -->
@@ -28,12 +33,13 @@
 
   <section class="main-section">
     <div class="left-section">
-      <button class="try-btn">جرّب مجاناً</button>
+      <img src="assets/google.png" alt="google" class="google-img" />
       <h2>استخراج من خرائط قوقل</h2>
       <p>يمكنك سحب ١٠٠ مكان وأكثر، باستخدام كلمات مفتاحيه، أقسام، مواقع، احصل على العناوين والبيانات والـ...</p>
     </div>
     <div class="right-section">
-      <img src="assets/google.png" alt="google" class="google-img" />
+      
+      <button class="try-btn">جرّب مجاناً</button>
     </div>
   </section>
 
@@ -67,27 +73,35 @@
   </div>
 
 
-  <div class="above-footer">
-    <div class="right-section">
-      <img src="assets/search.png" alt="Logo" width="108" height="108" />
-      <div class="nav-links">
-        <a href="home.html" class="nav-btn">الصفحة الرئيسية</a>
-        <a href="who.html" class="nav-btn">من نحن</a>
+
+  <div class="content-box" id="apiInfo" style="display: none;">
+    <h3>API</h3>
+    <p>هنا الروابط راح تكون ووصف ال API</p>
+  </div>
+  
+  <div class="footer">
+    <img src="assets/background2.png" class="footer-bg" />
+  
+    <div class="footer-content">
+      <!-- القسم الأيمن -->
+      <div class="footer-section right">
+        <img src="assets/search.png" class="footer-logo" />
+        <a href="info.html" class="footer-btn">الرئيسية</a>
+        <a href="who.html" class="footer-btn">من نحن</a>
+      </div>
+  
+      <!-- القسم الأيسر -->
+      <div class="footer-section left">
+        <p class="contact-title">تواصل معنا</p>
+        <p>📞 055555</p>
+        <div class="social-icons">
+          <img src="assets/insta.png" alt="Instagram" />
+          <img src="assets/twitter.png" alt="Twitter" />
+          <img src="assets/email.png" alt="Email" />
+        </div>
       </div>
     </div>
   </div>
-  
-  <footer class="footer">
-    <img src="assets/background2.png" alt="footer background" class="footer-bg" />
-    <div class="contact">
-      <p>تواصل معنا</p>
-      <p>📞 055555</p>
-      <div class="social-icons">
-        <img src="assets/insta.png" alt="insta" />
-        <img src="assets/twitter.png" alt="twitter" />
-        <img src="assets/email.png" alt="email" />
-      </div>
-    </div>
   </footer>
 
   <script type="module" src="info.js"></script>
