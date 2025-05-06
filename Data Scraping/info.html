@@ -1,27 +1,39 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+<link rel="stylesheet" href="info.css" />
+<link rel="stylesheet" href="header.css" />
+
 <head>
   <meta charset="UTF-8" />
   <title>الصفحة الرئيسية</title>
-  <link rel="stylesheet" href="info.css" />
+  <div class="head">
+    <nav>
+      <img class="logo" src="assets/logo.png" />
+
+      <ul>
+        <li><a href="/"> من نحن؟ </a></li>
+        <li><a href="mainpage.html"> الصفحة الرئيسية</a></li>
+      </ul>
+      <div class="log-ui">
+        <div class="login-button">
+          <a href="">تسجيل</a>
+          <button class="signupbu">تسجيل الدخول</button>
+        </div>
+        <div class="user-info" style="display: none;">
+          <span> مرحباً </span>
+          <span class="user-name"> اسم المستخدم </span>
+          <a href="">
+            <img class="user-photo" src="assets/userava.png">
+          </a>
+
+        </div>
+      </div>
+      <div class="line"></div>
+    </nav>
+  </div>
 </head>
+
 <body>
-
-  <header class="top-bar">
-    <div class="left-side">
-      <img src="assets/search.png" alt="logo" class="top-logo" />
-      <a href="home.html" class="nav-btn">الرئيسية</a>
-      <a href="who.html" class="nav-btn">من نحن</a>
-    </div>
-  
-    <div class="right-side">
-      <span id="welcomeUser" class="username">مرحباً</span>
-      <a href="setting.html">
-        <img src="assets/person.png" alt="person" class="person-icon" />
-      </a>
-    </div>
-  </header>
-
   <!-- ✅ الخط تحت الشريط العلوي -->
   <div class="top-divider"></div>
 
@@ -30,7 +42,7 @@
       <!-- استبدل الزر -->
 
       <img src="assets/map.png" alt="map" class="map-img" />
-      
+
       <h2>استخراج من خرائط قوقل</h2>
       <p>يمكنك سحب ١٠٠ مكان وأكثر، باستخدام كلمات مفتاحيه، أقسام، مواقع، احصل على العناوين والبيانات والـ...</p>
     </div>
@@ -44,9 +56,12 @@
     <div class="tab" onclick="showContent('api')">API</div>
   </div>
 
-<div class="content-box" id="moreInfo">
+  <div class="content-box" id="moreInfo">
     <h3>ماهو استخراج من خرائط قوقل ؟</h3>
-    <p>Google Maps Extractor هو أداة ذكية لاستخراج البيانات من خرائط جوجل، تتيح لك جمع معلومات الأماكن بسرعة وسهولة. فكر فيها كنسخة مطوّرة وسريعة من أداة سحب بيانات خرائط جوجل التقليدية. كل ما عليك هو إدخال كلمة مفتاحية أو رابط أو فئة وموقع، وستحصل على بيانات مثل: الأسعار، الإحداثيات، أسماء الأماكن، أرقام التواصل، والمزيد — بسرعة عالية وتكلفة واضحة ومناسبة.</p>
+    <p>Google Maps Extractor هو أداة ذكية لاستخراج البيانات من خرائط جوجل، تتيح لك جمع معلومات الأماكن بسرعة وسهولة. فكر
+      فيها كنسخة مطوّرة وسريعة من أداة سحب بيانات خرائط جوجل التقليدية. كل ما عليك هو إدخال كلمة مفتاحية أو رابط أو فئة
+      وموقع، وستحصل على بيانات مثل: الأسعار، الإحداثيات، أسماء الأماكن، أرقام التواصل، والمزيد — بسرعة عالية وتكلفة
+      واضحة ومناسبة.</p>
 
     <h3>ماذا يمكن ان يفعل مستخرج قوقل ؟</h3>
     <ul>
@@ -70,9 +85,9 @@
       <li>اضغط على “ابدأ” وانتظر حتى تكتمل عملية الاستخلاص.</li>
       <li>بعد الانتهاء، بإمكانك تحميل البيانات بصيغ متعددة مثل Excel، CSV، JSON أو HTML.</li>
     </ol>
-</div>
+  </div>
 
-  
+
   <div class="content-box" id="apiInfo" style="display: none;">
     <h3>API</h3>
     <p>هنا الروابط راح تكون ووصف ال API</p>
@@ -81,32 +96,33 @@
 
 
   <footer class="footer">
-  <img src="assets/background2.png" alt="footer background" class="footer-bg" />
+    <img src="assets/background2.png" alt="footer background" class="footer-bg" />
 
-  <div class="footer-content">
-    <!-- القسم الأيمن: الشعار والروابط -->
-    <div class="footer-right">
-      <img src="assets/search.png" alt="Logo" width="108" height="108" />
-      <div class="footer-links">
-        <a href="home.html">الرئيسية</a>
-        <a href="who.html">من نحن</a>
+    <div class="footer-content">
+      <!-- القسم الأيمن: الشعار والروابط -->
+      <div class="footer-right">
+        <img src="assets/search.png" alt="Logo" width="108" height="108" />
+        <div class="footer-links">
+          <a href="home.html">الرئيسية</a>
+          <a href="who.html">من نحن</a>
+        </div>
+      </div>
+
+
+      <!-- القسم الأيسر: التواصل -->
+      <div class="footer-left">
+        <p>تواصل معنا</p>
+        <p>📞 055555</p>
+        <div class="social-icons">
+          <img src="assets/insta.png" alt="insta" />
+          <img src="assets/twitter.png" alt="twitter" />
+          <img src="assets/email.png" alt="email" />
+        </div>
       </div>
     </div>
-  
-    
-    <!-- القسم الأيسر: التواصل -->
-    <div class="footer-left">
-      <p>تواصل معنا</p>
-      <p>📞 055555</p>
-      <div class="social-icons">
-        <img src="assets/insta.png" alt="insta" />
-        <img src="assets/twitter.png" alt="twitter" />
-        <img src="assets/email.png" alt="email" />
-      </div>
-    </div>
-  </div>
-</footer>
-  
-  <script type="module" src="info.js"></script>
+  </footer>
+
+  <script type="module" src="script.js"></script>
 </body>
+
 </html>
