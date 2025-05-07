@@ -58,33 +58,24 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // التبديل بين التابات
-document.getElementById("tabMore").addEventListener("click", () => {
-  document.getElementById("moreInfo").style.display = "block";
-  document.getElementById("apiInfo").style.display = "none";
-  document.getElementById("tabMore").classList.add("active");
-  document.getElementById("tabApi").classList.remove("active");
-});
+const tabMore = document.getElementById('tabMore');
+const tabApi = document.getElementById('tabApi');
+const moreInfoDiv = document.getElementById('moreInfo');
+const apiInfoDiv = document.getElementById('apiInfo');
 
-document.getElementById("tabApi").addEventListener("click", () => {
-  document.getElementById("moreInfo").style.display = "none";
-  document.getElementById("apiInfo").style.display = "block";
-  document.getElementById("tabApi").classList.add("active");
-  document.getElementById("tabMore").classList.remove("active");
-});
+tabMore.addEventListener('click', () => showContent('info'));
+tabApi.addEventListener('click', () => showContent('api'));
 
 function showContent(type) {
-  const tabMore = document.querySelector('.tab:nth-child(1)');
-  const tabApi = document.querySelector('.tab:nth-child(2)');
-  
-  if (type === 'info') {
-    document.getElementById("moreInfo").style.display = "block";
-    document.getElementById("apiInfo").style.display = "none";
-    tabMore.classList.add("active");
-    tabApi.classList.remove("active");
-  } else if (type === 'api') {
-    document.getElementById("moreInfo").style.display = "none";
-    document.getElementById("apiInfo").style.display = "block";
-    tabApi.classList.add("active");
-    tabMore.classList.remove("active");
-  }
+    if (type === 'info') {
+        moreInfoDiv.style.display = "block";
+        apiInfoDiv.style.display = "none";
+        tabMore.classList.add("active");
+        tabApi.classList.remove("active");
+    } else if (type === 'api') {
+        moreInfoDiv.style.display = "none";
+        apiInfoDiv.style.display = "block";
+        tabApi.classList.add("active");
+        tabMore.classList.remove("active");
+    }
 }

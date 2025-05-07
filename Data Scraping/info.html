@@ -40,11 +40,13 @@
   <section class="main-section">
     <div class="left-section">
       <!-- استبدل الزر -->
-
-      <img src="assets/map.png" alt="map" class="map-img" />
-
-      <h2>استخراج من خرائط قوقل</h2>
-      <p>يمكنك سحب ١٠٠ مكان وأكثر، باستخدام كلمات مفتاحيه، أقسام، مواقع، احصل على العناوين والبيانات والـ...</p>
+      <div class="img-text">
+        <img src="assets/map.png" alt="map" class="map-img" />
+        <div>
+          <h2>استخراج من خرائط قوقل</h2>
+          <p>يمكنك سحب ١٠٠ مكان وأكثر، باستخدام كلمات مفتاحيه، أقسام، مواقع، احصل على العناوين والبيانات والـ...</p>
+        </div>
+      </div>
     </div>
     <div class="right-section">
       <a href="scrap.html" class="try-btn">جرّب مجاناً</a>
@@ -52,8 +54,8 @@
   </section>
 
   <div class="selection-tabs">
-    <div class="tab active" onclick="showContent('info')">أعرف أكثر</div>
-    <div class="tab" onclick="showContent('api')">API</div>
+    <div class="tab active" id="tabMore">أعرف أكثر</div>
+    <div class="tab" id="tabApi">API</div>
   </div>
 
   <div class="content-box" id="moreInfo">
@@ -90,11 +92,14 @@
 
   <div class="content-box" id="apiInfo" style="display: none;">
     <h3>API</h3>
-    <p>هنا الروابط راح تكون ووصف ال API</p>
+    <p> API (واجهة برمجة التطبيقات): باختصار، هو وسيلة تتيح لبرنامجين مختلفين (أو موقعين أو تطبيقين) التحدث مع بعضهما البعض وتبادل المعلومات بطريقة منظمة. </p>
+    <p> مقبس الكهرباء: يوفر واجهة موحدة (شكل المقبس) تسمح لأجهزة كهربائية مختلفة (برامج مختلفة) بالاتصال بمصدر الطاقة (برنامج آخر يقدم الخدمة). </p>
+  <p> الـ API يجعل من السهل على المطورين استخدام وظائف أو بيانات موجودة في برامج أخرى دون الحاجة إلى معرفة تفاصيل عملها الداخلية. هذا يوفر الوقت والجهد ويسمح ببناء تطبيقات أكثر قوة وتكاملًا. </p>
+  <p> مثال بسيط: تطبيق الطقس يستخدم API للحصول على معلومات الطقس من مزود خدمة الطقس. تطبيق الطقس لا يعرف كيف يتم جمع بيانات الطقس أو تخزينها، ولكنه يستخدم الـ API لطلب هذه المعلومات وعرضها للمستخدم. </p>
   </div>
 
 
-
+ <script type="module" src="script.js"></script>
   <footer class="footer">
     <img src="assets/background2.png" alt="footer background" class="footer-bg" />
 
@@ -122,7 +127,7 @@
     </div>
   </footer>
 
-  <script type="module" src="script.js"></script>
+ 
 </body>
 
 </html>
