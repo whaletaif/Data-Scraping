@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar">
-<link rel="stylesheet" href="header.css">
-<link rel="stylesheet" href="scraper.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='scraper.css') }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>data scraper</title>
     <div>
-        <img class="logo" src="logo.png" />
+        <img class="logo" src="{{ url_for('static', filename='logo.png') }}" />
         <nav>
             <ul>
                 <li><a href="/"> من نحن؟ </a></li>
                 <li><a href="/about"> بحث </a></li>
-                <li><a href="mainpage.html"> الصفحة الرئيسية</a></li>
+                <li><a href="{{ url_for('index') }}"> الصفحة الرئيسية</a></li>
             </ul>
 
 
@@ -24,12 +24,13 @@
             <div class="line"></div>
         </nav>
     </div>
+    <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
 </head>
 
 <body>
     <div class="back">
         <p> رجوع </p>
-        <button class="backbutt"> <img src="backarrow.png" alt=""> </button>
+        <button class="backbutt"> <img src="{{ url_for('static', filename='backarrow.png') }}" alt=""> </button>
 
     </div>
 
@@ -47,19 +48,19 @@
                 <div class="copy-link-container">
                     <input type="text" value="https://example.com/api/data1" id="link1" readonly>
                     <button class="copy-button" data-target="link1">
-                        <img src="copy.png">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
                 <div class="copy-link-container">
                     <input type="text" value="https://example.com/api/users" id="link2" readonly>
                     <button class="copy-button" data-target="link1">
-                        <img src="copy.png">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
                 <div class="copy-link-container">
                     <input type="text" value="https://example.com/api/users" id="link2" readonly>
                     <button class="copy-button" data-target="link1">
-                        <img src="copy.png">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
             </div>
@@ -86,7 +87,7 @@
             <p> .يمكنك سحب ١٠٠ مكان واكثر ب استخدام كلمات مفتاحيه ، اقسام ، مواقع. احصل على العناوين والبيانات والخ </p>
         </div>
         <div class="icon-container">
-            <img src="googlemaps.png">
+            <img src="{{ url_for('static', filename='googlemaps.png') }}">
         </div>
     </div>
 
@@ -100,11 +101,12 @@
                 <table>
                     <thead>
                         <tr>
-                            <th> الاخطاء </th>
+                            <th> الرسائل </th>
                         </tr>
                     </thead>
                     <tbody id="error-rows">
-                        </tbody>
+                        <!-- Logs will be dynamically added here -->
+                    </tbody>
                 </table>
             </div>
         </div>
@@ -141,37 +143,31 @@
                 <p>الأقسام التي تحمل علامة النجمة* هي مجرد طرق بديلة لبدء الإدخال ( معلمات الموقع الجغرافي، المضلعات،
                     عناوين URL). يمكن دمجها مع أي من الميزات وخيارات الفرز من قسم "الفلاتر" </p>
 
-                <h3> ادخل عنوان بحثك </h3>
-                <div class="tag-card">
-                    <div class="tag-list">
+                <form id="scraper-form" method="POST" action="/scraper-maps">
+                    <h3> ادخل عنوان بحثك </h3>
+                    <div class="loc">
+                        <input type="text" name="keyword" placeholder="مطعم">
                     </div>
-                    <button id="add-tag-button">
-                        <span>+</span> إضافة
-                    </button>
-                </div>
-                <div class="loc">
-                    <h3 id="loca"> الموقع </h3>
-                    <input type="text" placeholder="المملكة العربية السعودية">
-                </div>
-                <div class="datacounter">
-                    <h3 id="dataco"> البيانات </h3>
-                    <div class="counter">
-                        <input type="number" id="number-input" value="50">
-                        <button class="increment-arrow"></button>
-                        <button class="decrement-arrow"></button>
+                    <div class="loc">
+                        <h3 id="loca"> الموقع </h3>
+                        <input type="text" name="location" placeholder="الرياض">
                     </div>
-                </div>
-
-                <div class="lang">
-                    <h3 id="lang"> اللغة </h3>
-                    <input type="text" placeholder="العربية">
-                </div>
+                    <div class="loc">
+                        <h3 id="dataco"> البيانات </h3>
+                        <input type="text" name="limit" placeholder="50. Leave blank for no max limit">
+                    </div>
+                    <!-- <div class="lang">
+                        <h3 id="lang"> اللغة </h3>
+                        <input type="text" placeholder="العربية">
+                    </div> -->
+                    <button type="submit">Submit</button>
+                </form>
             </div>
         </div>
 
     </div>
 
-    <script src="script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
 </html>

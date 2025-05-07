@@ -1,0 +1,18 @@
+# Ignore Python bytecode
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Ignore environment files
+.env
+*.env
+
+# Ignore virtual environments
+venv/
+env/
+
+# Ignore output folders (optional, if you don't want to version them)
+outputs/
+*.xlsx
+*.csv
+*.json

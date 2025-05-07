@@ -67,30 +67,30 @@ function removeTagItem(event) {
     tagCount = remainingTags.length;
 }
 
-addTagButton.addEventListener('click', addTagItem);
+// addTagButton.addEventListener('click', addTagItem);
 
-addTagItem();
+// addTagItem();
 
 const numberInput = document.getElementById('number-input');
 const incrementButton = document.querySelector('.increment-arrow');
 const decrementButton = document.querySelector('.decrement-arrow');
 
-incrementButton.addEventListener('click', () => {
-    numberInput.value = parseInt(numberInput.value) + 1;
-});
+// incrementButton.addEventListener('click', () => {
+//     numberInput.value = parseInt(numberInput.value) + 1;
+// });
 
-decrementButton.addEventListener('click', () => {
-    numberInput.value = parseInt(numberInput.value) - 1;
-});
+// decrementButton.addEventListener('click', () => {
+//     numberInput.value = parseInt(numberInput.value) - 1;
+// });
 
 
-numberInput.addEventListener('change', () => {
-    if (parseInt(numberInput.value) < 0) {
-        numberInput.value = 0;
-    } else if (parseInt(numberInput.value) > 100) {
-        numberInput.value = 100;
-    }
-});
+// numberInput.addEventListener('change', () => {
+//     if (parseInt(numberInput.value) < 0) {
+//         numberInput.value = 0;
+//     } else if (parseInt(numberInput.value) > 100) {
+//         numberInput.value = 100;
+//     }
+// });
 
 
 const apiButton = document.getElementById('api-button');
@@ -128,12 +128,12 @@ scheduleButton.addEventListener('click', () => {
 apiButton.addEventListener('click', openApiPopup);
 
 closeApiButton.addEventListener('click', closeApiPopup);
-closeApiPopupButton.addEventListener('click', closeApiPopup);
+// closeApiPopupButton.addEventListener('click', closeApiPopup);
 
 scheduleButton.addEventListener('click', openSchedulePopup);
 
 closeScheduleButton.addEventListener('click', closeSchedulePopup);
-closeSchedulePopupButton.addEventListener('click', closeSchedulePopup);
+// closeSchedulePopupButton.addEventListener('click', closeSchedulePopup);
 
 
 window.addEventListener('click', (event) => {
@@ -224,12 +224,12 @@ function addNewData(description, count, startTime, endTime, duration, type, file
 
 // addNewData('وصف جديد', 678, '2025-05-02 12:00', '2025-05-02 12:15', '15 دقيقة', 'تعديل', '500 KB');
 
-const errorData = [
-    { type: 'خطأ في الاتصال', count: 5 },
-    { type: 'خطأ في البيانات', count: 12 },
-    { type: 'خطأ في الخادم', count: 2 },
-    { type: 'أخطاء أخرى', count: 1 },
-];
+// const errorData = [
+//     { type: 'خطأ في الاتصال', count: 5 },
+//     { type: 'خطأ في البيانات', count: 12 },
+//     { type: 'خطأ في الخادم', count: 2 },
+//     { type: 'أخطاء أخرى', count: 1 },
+// ];
 
 const errorRowsBody = document.getElementById('error-rows');
 
@@ -243,10 +243,83 @@ function addErrorRow(errorInfo) {
     countCell.textContent = errorInfo.count;
 }
 
-errorData.forEach(error => {
-    addErrorRow(error);
+const form = document.getElementById('scraper-form');
+const submitButton = form.querySelector('button[type="submit"]');
+
+form.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent page refresh
+
+    // Clear previous logs
+    errorRowsBody.innerHTML = '';
+
+    // Get input values
+    const keyword = form.querySelector('input[name="keyword"]').value.trim();
+    const location = form.querySelector('input[name="location"]').value.trim();
+    const limit = form.querySelector('input[name="limit"]').value.trim();
+
+    // Validate inputs
+    let hasErrors = false;
+    if (!keyword) {
+        const newRow = errorRowsBody.insertRow();
+        const logCell = newRow.insertCell();
+        logCell.textContent = 'Keyword is required.';
+        hasErrors = true;
+    }
+
+    if (!location) {
+        const newRow = errorRowsBody.insertRow();
+        const logCell = newRow.insertCell();
+        logCell.textContent = 'Location is required.';
+        hasErrors = true;
+    }
+
+    if (limit && (!Number.isInteger(Number(limit)) || Number(limit) <= 1)) {
+        const newRow = errorRowsBody.insertRow();
+        const logCell = newRow.insertCell();
+        logCell.textContent = 'Limit must be a whole number greater than 0.';
+        hasErrors = true;
+    }
+
+    const issuesTab = document.getElementById('tab2-3');
+    if (issuesTab) {
+        issuesTab.checked = true; // Switch to the "المشاكل" tab
+    }
+
+    if (hasErrors) {return;}
+
+    // Disable the submit button
+    submitButton.disabled = true;
+
+    try {
+    const formData = new FormData(form);
+    const response = await fetch('/scraper-maps', {
+        method: 'POST',
+        body: formData,
+    });      
+    } finally {
+        // Re-enable the submit button
+        submitButton.disabled = false;
+    }
+
 });
 
+// errorData.forEach(error => {
+//     addErrorRow(error);
+// });
+
+const socket = io(); // Initialize SocketIO client
+
+socket.on('connect', () => {
+    console.log('WebSocket connected');
+});
+
+// Listen for log messages from the server
+socket.on('log', (data) => {
+    console.log('Log received:', data.message); // Debug log
+    const newRow = errorRowsBody.insertRow();
+    const logCell = newRow.insertCell();
+    logCell.textContent = data.message;
+});
 
 // function addNewError(errorType, errorCount) {
 //     const newError = { type: errorType, count: errorCount };
