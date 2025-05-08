@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="ar">
-<link rel="stylesheet" href="static/header.css">
-<link rel="stylesheet" href="static/scraper.css">
+<link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='scraper.css') }}">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>data scraper</title>
     <div>
-        <img class="logo" src="static/logo.png" />
+        <img class="logo" src="{{ url_for('static', filename='logo.png') }}" />
         <nav>
             <ul>
                 <li><a href="/"> من نحن؟ </a></li>
-                <li><a href="mainpage.html"> الصفحة الرئيسية</a></li>
+                <li><a href="/about"> بحث </a></li>
+                <li><a href="{{ url_for('index') }}"> الصفحة الرئيسية</a></li>
             </ul>
 
 
@@ -29,7 +30,7 @@
 <body>
     <div class="back">
         <p> رجوع </p>
-        <button class="backbutt"> <img src="static/backarrow.png" alt=""> </button>
+        <button class="backbutt"> <img src="{{ url_for('static', filename='backarrow.png') }}" alt=""> </button>
 
     </div>
 
@@ -47,19 +48,19 @@
                 <div class="copy-link-container">
                     <input type="text" value="https://example.com/api/data1" id="link1" readonly>
                     <button class="copy-button" data-target="link1">
-                        <img src="static/copy.png">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
                 <div class="copy-link-container">
                     <input type="text" value="https://example.com/api/users" id="link2" readonly>
                     <button class="copy-button" data-target="link1">
-                        <img src="static/copy.png">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
                 <div class="copy-link-container">
                     <input type="text" value="https://example.com/api/users" id="link2" readonly>
                     <button class="copy-button" data-target="link1">
-                        <img src="static/copy.png">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
             </div>
@@ -86,7 +87,7 @@
             <p> .يمكنك سحب ١٠٠ مكان واكثر ب استخدام كلمات مفتاحيه ، اقسام ، مواقع. احصل على العناوين والبيانات والخ </p>
         </div>
         <div class="icon-container">
-            <img src="static/googlemaps.png">
+            <img src="{{ url_for('static', filename='googlemaps.png') }}">
         </div>
     </div>
 
@@ -127,7 +128,7 @@
                         </tr>
                     </thead>
                     <tbody id="data-rows">
-                    </tbody>
+                        </tbody>
                 </table>
             </div>
         </div>
@@ -166,7 +167,7 @@
 
     </div>
 
-    <script src="static/script.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
 </body>
 
 </html>
