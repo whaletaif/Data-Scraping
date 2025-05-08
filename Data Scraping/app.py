@@ -11,7 +11,7 @@ def index():
 
 @app.route("/scraper-maps")
 def scraper():
-    return render_template("scraper_maps.html")
+    return render_template("scraper-maps.html")
 
 @app.route('/scraper-maps', methods=['POST'])
 def scrape_maps():
