@@ -8,10 +8,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>data scraper</title>
     <div>
-        <img class="logo" src="{{ url_for('static', filename='logo.png') }}" />
+        <img class="logo" src="{{ url_for('static', filename='logo.png') }}" style="height: 50px;
+           width: 50px;
+           float: right;
+           padding-right: 30px; padding-top: 10px;" />
         <nav>
             <ul>
-                <li><a href="/"> من نحن؟ </a></li> 
+                <li><a href="/"> من نحن؟ </a></li>
                 <li><a href="{{ url_for('index') }}"> الصفحة الرئيسية</a></li>
             </ul>
 
@@ -29,7 +32,7 @@
 <body>
     <div class="back">
         <p> رجوع </p>
-        <button class="backbutt"> <img src="{{ url_for('static', filename='backarrow.png') }}" alt=""> </button>
+        <a  href="{{ url_for('index') }}"><button class="backbutt"> <img src="{{ url_for('static', filename='backarrow.png') }}" alt=""> </button></a>
 
     </div>
 
@@ -127,7 +130,7 @@
                         </tr>
                     </thead>
                     <tbody id="data-rows">
-                        </tbody>
+                    </tbody>
                 </table>
             </div>
         </div>
