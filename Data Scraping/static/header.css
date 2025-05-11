@@ -1,53 +1,94 @@
-html{
+html {
     justify-content: center;
 }
-header{
+
+header {
     padding-top: 20px;
 }
-nav{
+
+nav {
     padding: 20px;
 }
-img{
-    height:50px;
+
+.head img {
+    height: 40px;
     width: 50px;
     float: right;
     padding-right: 30px;
 }
-nav ul{
+
+nav ul {
     display: flex;
     float: right;
     padding-right: 30px;
     list-style: none;
 }
-nav ul li a{
+
+nav ul li a {
     text-decoration: none;
     padding: 10px;
-    color: rgba(7, 94, 114, 1); 
+    color: rgba(7, 94, 114, 1);
     font-size: 15px;
 }
-.line{
-    border-bottom: 2px solid #075E72;
+
+.line {
+    border-bottom: 1px solid #075E72;
     margin: 1px 0;
     width: 100%;
 }
-.login-button button{
-    background-color: #A4D5DA; 
-    color: rgba(7, 94, 114, 1);           
-    padding: 19px 15px;
-    border: none; 
-    border-radius: 25px; 
-    font-size: 15px;
-    cursor: pointer; 
-    transition: background-color 0.3s ease; 
-    text-decoration: none; 
-    display: inline-block; 
+
+.login-button {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
 }
-.login-button{
+
+.login-button button {
+    background-color: #A4D5DA;
+    color: rgba(7, 94, 114, 1);
+    padding: 15px 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 5px;
+}
+
+.login-button {
     padding-left: 30px;
 }
-.login-button a{
+
+.login-button a {
     font-size: 15px;
     text-decoration: none;
     padding: 15px;
-    color: rgba(7, 94, 114, 1); 
+    color: rgba(7, 94, 114, 1);
+}
+
+.log-ui .user-info {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    text-align: right;
+    justify-items: center;
+    padding-left: 30px;
+}
+
+.log-ui img {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.log-ui .user-info span {
+    padding-top: 10px;
+    padding-left: 7px;
+    color: #075E72;
+}
+
+.user-info a {
+    text-decoration: none;
 }

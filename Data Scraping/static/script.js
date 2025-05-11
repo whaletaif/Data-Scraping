@@ -95,11 +95,11 @@ const decrementButton = document.querySelector('.decrement-arrow');
 
 const apiButton = document.getElementById('api-button');
 const apiPopup = document.getElementById('api-popup');
-const closeApiButton = document.querySelector('#api-popup .close-button'); 
+const closeApiButton = document.querySelector('#api-popup .close-button');
 const copyButtons = document.querySelectorAll('.copy-button');
 const scheduleButton = document.getElementById('schedule-button');
 const schedulePopup = document.getElementById('schedule-popup');
-const closeScheduleButton = document.querySelector('#schedule-popup .close-schedule-button'); 
+const closeScheduleButton = document.querySelector('#schedule-popup .close-schedule-button');
 
 function openApiPopup() {
     apiPopup.style.display = 'flex';
@@ -118,11 +118,11 @@ function closeSchedulePopup() {
     schedulePopup.style.display = 'none';
 }
 closeScheduleButton.addEventListener('click', () => {
-    schedulePopup.style.display = 'none'; 
+    schedulePopup.style.display = 'none';
 });
 
 scheduleButton.addEventListener('click', () => {
-    schedulePopup.style.display = 'flex'; 
+    schedulePopup.style.display = 'flex';
 });
 
 apiButton.addEventListener('click', openApiPopup);
@@ -285,17 +285,17 @@ form.addEventListener('submit', async (event) => {
         issuesTab.checked = true; // Switch to the "المشاكل" tab
     }
 
-    if (hasErrors) {return;}
+    if (hasErrors) { return; }
 
     // Disable the submit button
     submitButton.disabled = true;
 
     try {
-    const formData = new FormData(form);
-    const response = await fetch('/scraper-maps', {
-        method: 'POST',
-        body: formData,
-    });      
+        const formData = new FormData(form);
+        const response = await fetch('/scraper-maps', {
+            method: 'POST',
+            body: formData,
+        });
     } finally {
         // Re-enable the submit button
         submitButton.disabled = false;
@@ -326,3 +326,41 @@ socket.on('log', (data) => {
 //     addErrorRow(newError);
 // }
 // addNewError('خطأ جديد', 3);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loginButtonDiv = document.querySelector('.login-button');
+    const userInfoDiv = document.querySelector('.user-info');
+    const userAvatarImg = document.querySelector('.user-info .user-photo');
+    const userNameSpan = document.querySelector('.user-info .user-name');
+    const welcomeUserElement = document.getElementById('welcomeUser');
+
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            loginButtonDiv.style.display = 'none';
+            userInfoDiv.style.display = 'flex';
+
+            if (welcomeUserElement) {
+                welcomeUserElement.textContent = `مرحباً ${user.email ? user.email.split('@')[0] : user.displayName || 'مستخدم'}`;
+            }
+
+            const userDocRef = doc(db, "users", user.uid);
+            const userDocSnap = await getDoc(userDocRef);
+
+            if (userDocSnap.exists()) {
+                const userData = userDocSnap.data();
+                userNameSpan.textContent = userData.displayName || user.displayName || (user.email ? user.email.split('@')[0] : 'اسم المستخدم');
+                userAvatarImg.src = userData.photoURL || user.photoURL || 'default-avatar.png';
+            } else {
+                console.log("لا توجد بيانات إضافية في Firestore.");
+                userNameSpan.textContent = user.displayName || (user.email ? user.email.split('@')[0] : 'اسم المستخدم');
+                userAvatarImg.src = user.photoURL || 'default-avatar.png';
+            }
+        } else {
+            loginButtonDiv.style.display = 'block';
+            userInfoDiv.style.display = 'none';
+            if (welcomeUserElement) {
+                welcomeUserElement.textContent = '';
+            }
+        }
+    });
+});
