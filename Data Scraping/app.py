@@ -15,9 +15,10 @@ def scraper():
 
 @app.route('/scraper-maps', methods=['POST'])
 def scrape_maps():
-    keyword = request.form['keyword']
-    location = request.form['location']
-    limit = request.form['limit']
+    keyword = request.form['keyword'].strip()
+    location = request.form['location'].strip()
+    limit = request.form['limit'].strip()
+    proxy = request.form.get('proxy', '').strip()
 
     # Convert limit to integer, or None if blank
     try:
@@ -27,7 +28,7 @@ def scrape_maps():
 
     try:
         # Call your scraping function
-        output_path = maps_scraper(keyword, location, limit, log_callback=log_message)
+        output_path = maps_scraper(keyword, location, limit, log_callback=log_message, proxy=proxy)
 
         # Return JSON response with success and file path
         return jsonify({"success": True, "filename": output_path})
