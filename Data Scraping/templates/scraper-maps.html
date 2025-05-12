@@ -47,7 +47,7 @@
             <div class="popup-content">
                 <span class="close-button">&times;</span>
                 <h2>API</h2>
-                <p>To send parameters to scraper using API:</p>
+                <p> ارسال العوامل باستخدام  API:</p>   
                 <div class="copy-link-container">
                     <input type="text" value='curl -X POST http://127.0.0.1:5000/api/scraper-maps ^' id="link1" readonly>
                     <button class="copy-button" data-target="link1">
@@ -66,15 +66,15 @@
                         <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
-                <p>Replace a,b,c,d with custom parameters. Limit and Proxy are optional.</p>
+                <p>  غير a,b,c,d بعواملك الخاصه. الحد الاقصى و proxy  اختياريين.</p>
                 <div class="copy-link-container">
                     <input type="text" value='-d "{\"keyword\": \"a\", \"location\": \"b\", \"limit\": \"c\", \"proxy\": \"d\"}"' id="link4" readonly>
                     <button class="copy-button" data-target="link4">
                         <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
-                <p>To get output from API:</p>
-                <p>Use filename from result.</p>
+                <p>  لتحصل على نتائج من API:</p>
+                <p> استخدم اسم الملف من النتائج </p>
                 <div class="copy-link-container">
                     <input type="text" value='curl -X GET "http://127.0.0.1:5000/api/download?filename=filename.xlsx" ^' id="link5" readonly>
                     <button class="copy-button" data-target="link5">
