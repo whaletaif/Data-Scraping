@@ -263,28 +263,28 @@ form.addEventListener('submit', async (event) => {
     if (!keyword) {
         const newRow = errorRowsBody.insertRow();
         const logCell = newRow.insertCell();
-        logCell.textContent = 'Keyword is required.';
+        logCell.textContent = 'يجب عليك ادخال كلمة مفتاحية';//Keyword is required.
         hasErrors = true;
     }
 
     if (!location) {
         const newRow = errorRowsBody.insertRow();
         const logCell = newRow.insertCell();
-        logCell.textContent = 'Location is required.';
+        logCell.textContent = 'يجب عليك ادخال موقع';//Location is required.
         hasErrors = true;
     }
 
     if (limit && (!Number.isInteger(Number(limit)) || Number(limit) <= 1)) {
         const newRow = errorRowsBody.insertRow();
         const logCell = newRow.insertCell();
-        logCell.textContent = 'Limit must be a whole number greater than 0.';
+        logCell.textContent = 'يجب أن يكون الحد عددًا أكبر من 0';//Limit must be a whole number greater than 0.
         hasErrors = true;
     }
 
     if (proxy && !proxy.startsWith('http://') && !proxy.startsWith('https://')) {
         const newRow = errorRowsBody.insertRow();
         const logCell = newRow.insertCell();
-        logCell.textContent = 'Proxy must start with http:// or https://.';
+        logCell.textContent = 'يجب ان تبدأ بـ http:// او https://.';//Proxy must start with http:// or https://.
         hasErrors = true;
     }
 
