@@ -47,21 +47,49 @@
             <div class="popup-content">
                 <span class="close-button">&times;</span>
                 <h2>API</h2>
+                <p>To send parameters to scraper using API:</p>
                 <div class="copy-link-container">
-                    <input type="text" value="https://example.com/api/data1" id="link1" readonly>
+                    <input type="text" value='curl -X POST http://127.0.0.1:5000/api/scraper-maps ^' id="link1" readonly>
                     <button class="copy-button" data-target="link1">
                         <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
                 <div class="copy-link-container">
-                    <input type="text" value="https://example.com/api/users" id="link2" readonly>
-                    <button class="copy-button" data-target="link1">
+                    <input type="text" value='-H "Authorization: Bearer token123" ^' id="link2" readonly>
+                    <button class="copy-button" data-target="link2">
                         <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
                 <div class="copy-link-container">
-                    <input type="text" value="https://example.com/api/users" id="link2" readonly>
-                    <button class="copy-button" data-target="link1">
+                    <input type="text" value='-H "Content-Type: application/json" ^' id="link3" readonly>
+                    <button class="copy-button" data-target="link3">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
+                    </button>
+                </div>
+                <p>Replace a,b,c,d with custom parameters. Limit and Proxy are optional.</p>
+                <div class="copy-link-container">
+                    <input type="text" value='-d "{\"keyword\": \"a\", \"location\": \"b\", \"limit\": \"c\", \"proxy\": \"d\"}"' id="link4" readonly>
+                    <button class="copy-button" data-target="link4">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
+                    </button>
+                </div>
+                <p>To get output from API:</p>
+                <p>Use filename from result.</p>
+                <div class="copy-link-container">
+                    <input type="text" value='curl -X GET "http://127.0.0.1:5000/api/download?filename=filename.xlsx" ^' id="link5" readonly>
+                    <button class="copy-button" data-target="link5">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
+                    </button>
+                </div>
+                <div class="copy-link-container">
+                    <input type="text" value='-H "Authorization: Bearer token123" ^' id="link6" readonly>
+                    <button class="copy-button" data-target="link6">
+                        <img src="{{ url_for('static', filename='copy.png') }}">
+                    </button>
+                </div>
+                <div class="copy-link-container">
+                    <input type="text" value='-o "any_file_name.xlsx"' id="link7" readonly>
+                    <button class="copy-button" data-target="link7">
                         <img src="{{ url_for('static', filename='copy.png') }}">
                     </button>
                 </div>
