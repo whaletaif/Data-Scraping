@@ -16,13 +16,21 @@ def safe_get_text(locator):
         return None
 
 # Scraper function
-def maps_scraper(keyword, location, limit=None, log_callback=None):
+def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
     start_time = datetime.datetime.now()
     if log_callback:
         log_callback("بدأ تشغيل المستخرج, انتظر قليلاً") #Started running scraper. Please wait
     with sync_playwright() as p:
         query = f"{keyword} في {location}"
-        browser = p.chromium.launch(headless=True)  # headless=False to show browser
+        # Set proxy if provided
+        browser_args = {}
+        if proxy:
+            browser_args['proxy'] = {'server': proxy}
+            if log_callback:
+                log_callback("Proxy applied")
+
+        # Launch browser
+        browser = p.chromium.launch(headless=True, **browser_args)  # headless=False to show browser
         page = browser.new_page()
 
         # Go to Google Maps

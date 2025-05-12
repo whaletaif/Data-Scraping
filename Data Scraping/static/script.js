@@ -256,6 +256,7 @@ form.addEventListener('submit', async (event) => {
     const keyword = form.querySelector('input[name="keyword"]').value.trim();
     const location = form.querySelector('input[name="location"]').value.trim();
     const limit = form.querySelector('input[name="limit"]').value.trim();
+    const proxy = form.querySelector('input[name="proxy"]').value.trim();
 
     // Validate inputs
     let hasErrors = false;
@@ -277,6 +278,13 @@ form.addEventListener('submit', async (event) => {
         const newRow = errorRowsBody.insertRow();
         const logCell = newRow.insertCell();
         logCell.textContent = 'Limit must be a whole number greater than 0.';
+        hasErrors = true;
+    }
+
+    if (proxy && !proxy.startsWith('http://') && !proxy.startsWith('https://')) {
+        const newRow = errorRowsBody.insertRow();
+        const logCell = newRow.insertCell();
+        logCell.textContent = 'Proxy must start with http:// or https://.';
         hasErrors = true;
     }
 
