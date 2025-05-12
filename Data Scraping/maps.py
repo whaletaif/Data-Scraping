@@ -96,7 +96,7 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
                 if log_callback:
                     log_callback(f"خطأ في الحصول على النتائج {i}: {e}") #Error getting href for result
         if log_callback:
-            log_callback(f"{len(hrefs)} unique results found. {len(results)-len(hrefs)} duplicates ignored.")
+            log_callback(f"{len(hrefs)} نتائج غريبه {len(results)-len(hrefs)} تم تجاهل النتائج المكرره ")#unique results found. duplicates ignored.
 
         # Visit each result
         all_outputs = []
@@ -142,7 +142,7 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
         duration = datetime.datetime.now() - start_time
         formatted_duration = str(duration).split('.')[0]
         if log_callback:
-            log_callback(f"Scraping completed in {formatted_duration}")
+            log_callback(f" تم الاستخراج في  {formatted_duration}")#Scraping completed in
         browser.close()
         return output_path
 
