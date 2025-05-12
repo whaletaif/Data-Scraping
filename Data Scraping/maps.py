@@ -19,7 +19,7 @@ def safe_get_text(locator):
 def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
     start_time = datetime.datetime.now()
     if log_callback:
-        log_callback("Started running scraper. Please wait")
+        log_callback("بدأ تشغيل المستخرج, انتظر قليلاً") #Started running scraper. Please wait
     with sync_playwright() as p:
         query = f"{keyword} في {location}"
         # Set proxy if provided
@@ -38,7 +38,7 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
             page.goto(f"https://www.google.com/maps/place/{location}?hl=ar", timeout=30000)
         except TimeoutError as e:
             if log_callback:
-                log_callback("Slow internet connection. Please try again.")
+                log_callback("لديك مشكله في الاتصال بالانترنت, حاول لاحقا") #Slow internet connection. Please try again.
             browser.close()
 
         # Accept cookies if prompted
@@ -53,7 +53,7 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
             page.locator('//input[@id="searchboxinput"]').fill(keyword)
         except TimeoutError as e:
             if log_callback:
-                log_callback("Slow internet connection. Please try again.")
+                log_callback("لديك مشكله في الاتصال بالانترنت, حاول لاحقا") #Slow internet connection. Please try again.
             browser.close()
         page.keyboard.press("Enter")
 
@@ -63,7 +63,7 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
             page.hover('//a[contains(@href, "https://www.google.com/maps/place")]')
         except TimeoutError as e:
             if log_callback:
-                log_callback("Slow internet connection. Please try again.")
+                log_callback("لديك مشكله في الاتصال بالانترنت, حاول لاحقا")#Slow internet connection. Please try again.
             browser.close()
 
         # Scroll
@@ -77,10 +77,10 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
             results = page.locator("//a[contains(@href, 'https://www.google.com/maps/place')]").all()
         except TimeoutError as e:
             if log_callback:
-                log_callback("Slow internet connection. Please try again.")
+                log_callback("لديك مشكله في الاتصال بالانترنت, حاول لاحقا") #Slow internet connection. Please try again.
             browser.close()
         if log_callback:
-            log_callback(f"{len(results)} results found. Number depends on speed of internet connection.")
+            log_callback(f"{len(results)} نجح استخراج النتائج, النتائج يعتمد على سرعة اتصال الانترنت") #results found. Number depends on speed of internet connection.
         time.sleep(3)
 
         # Collect all hrefs from results
@@ -94,7 +94,7 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
                     hrefs_seen.add(href)
             except Exception as e:
                 if log_callback:
-                    log_callback(f"Error getting href for result {i}: {e}")
+                    log_callback(f"خطأ في الحصول على النتائج {i}: {e}") #Error getting href for result
         if log_callback:
             log_callback(f"{len(hrefs)} unique results found. {len(results)-len(hrefs)} duplicates ignored.")
 
@@ -129,10 +129,10 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
 
             except TimeoutError:
                 if log_callback:
-                    log_callback(f"Can't load result {i} due to slow internet connection. Can't reach {href}.")
+                    log_callback(f"لايمكن تحميل النتائج{i}بسبب اتصال الانترنت لايمكن الوصول الى نتائج{href}.")#Can't load result , due to slow internet connection. Can't reach 
             except Exception as e:
                 if log_callback:
-                    log_callback(f"Error extracting result {i}: {e}")
+                    log_callback(f"خطأ في استخراج النتائج {i}: {e}")#Error extracting result
             
         # Convert data collection to dataframe
         df = pd.DataFrame(all_outputs)
