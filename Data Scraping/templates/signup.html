@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول | إنشاء حساب</title>
+   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='signup.css') }}">
+
+</head>
+<body>
+  
+  <img src="{{ url_for('static', filename='logo.png') }}" alt="search logo" class="logo">
+
+  <div class="container">
+    <div class="tabs">
+      <button id="loginTab" class="active">تسجيل الدخول</button>
+      <button id="signupTab">إنشاء حساب</button>
+    </div>
+
+    <form id="form">
+      <input type="email" placeholder="البريد الالكتروني" id="email" required>
+      <input type="text" placeholder="الاسم" id="nameField" style="display: none;">
+      <input type="password" placeholder="كلمة المرور" id="password" required>
+      
+      <div class="buttons">
+        <button type="submit" class="continue-btn">استمرار</button>
+        <button type="button" class="google-btn">
+          <img src="static/google.png" alt="Google logo">
+        </button> 
+      </div>
+    </form>
+  </div>
+
+  <script type="module" src="{{ url_for('static', filename='signup.js') }}"></script>
+
+</body>
+</html>

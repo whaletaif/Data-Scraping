@@ -4,6 +4,7 @@ from flask_socketio import SocketIO, emit
 import os
 from urllib.parse import quote
 
+
 app = Flask(__name__)
 socketio = SocketIO(app)
 
@@ -21,10 +22,30 @@ def validate_token(request):
 def index():
     return render_template('mainpage.html')
 
+@app.route('/mainpage')
+def mainpage():
+    return render_template('mainpage.html')
+
 # Maps scraper page
 @app.route("/scraper-maps")
 def scraper():
     return render_template("scraper-maps.html")
+
+@app.route('/signup')
+def signup():
+    return render_template('signup.html')
+
+@app.route('/info')
+def info():
+    return render_template('info.html')
+
+@app.route('/setting')
+def setting():
+    return render_template('setting.html')
+
+@app.route('/scraper-maps.html')
+def scraper_maps():
+    return render_template('scraper-maps.html')
 
 @app.route('/scraper-maps', methods=['POST'])
 # Scraper function
@@ -112,4 +133,4 @@ def api_download_file():
     return send_file(file_path, as_attachment=True)
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app, debug=True, port=5001)
