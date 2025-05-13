@@ -172,7 +172,7 @@ body {
 
 .tabs [class^="tab"] [type="radio"]+div,
 .tabs [class*=" tab"] [type="radio"]+div {
-    display: none;
+    display: block;
     opacity: 0;
     padding: 2rem 0;
     width: 300%;

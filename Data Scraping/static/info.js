@@ -80,9 +80,9 @@ onAuthStateChanged(auth, (user) => {
   tryButton.addEventListener('click', (e) => {
     e.preventDefault(); // prevent default <a> behavior
     if (user) {
-      window.location.href = 'scraper-maps.html';
+      window.location.href = 'scraper-maps';
     } else {
-      window.location.href = 'signup.html';
+      window.location.href = 'signup';
     }
   });
 });
