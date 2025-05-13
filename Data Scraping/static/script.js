@@ -304,6 +304,13 @@ form.addEventListener('submit', async (event) => {
             method: 'POST',
             body: formData,
         });
+        const result = await response.json();
+        if (result.success) {
+            const logsContainer = document.getElementById('error-rows');
+            const newRow = logsContainer.insertRow();
+            const logCell = newRow.insertCell();
+            logCell.innerHTML = `<a href="/result-maps?file=${result.json_file}" target="_blank">عرض النتائج</a>`;
+        }       
     } finally {
         // Re-enable the submit button
         submitButton.disabled = false;

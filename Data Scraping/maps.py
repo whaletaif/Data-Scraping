@@ -4,6 +4,7 @@ import time
 import pandas as pd
 import datetime
 import os
+import json
 
 # Function to replace missing values with blanks
 def safe_get_text(locator):
@@ -129,22 +130,30 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
 
             except TimeoutError:
                 if log_callback:
-                    log_callback(f"لايمكن تحميل النتائج{i}بسبب اتصال الانترنت لايمكن الوصول الى نتائج{href}.")#Can't load result , due to slow internet connection. Can't reach 
+                    log_callback(f"لايمكن تحميل النتائج {i} بسبب اتصال الانترنت لايمكن الوصول الى نتائج{href}.")#Can't load result , due to slow internet connection. Can't reach 
             except Exception as e:
                 if log_callback:
                     log_callback(f"خطأ في استخراج النتائج {i}: {e}")#Error extracting result
             
         # Convert data collection to dataframe
         df = pd.DataFrame(all_outputs)
-        output_path = os.path.join('outputs', f'{query}.xlsx')
-        df.to_excel(output_path, index=False)
+        filename = f"{keyword}_في_{location}"
+
+        # Save as Excel
+        output_path_excel = os.path.join('outputs', f'{filename}.xlsx')
+        df.to_excel(output_path_excel, index=False)
+
+        # Save as JSON
+        output_path_json = os.path.join('outputs', f'{filename}.json')
+        with open(output_path_json, 'w', encoding='utf-8') as json_file:
+            json.dump(all_outputs, json_file, ensure_ascii=False, indent=4)
 
         duration = datetime.datetime.now() - start_time
         formatted_duration = str(duration).split('.')[0]
         if log_callback:
             log_callback(f" تم الاستخراج في  {formatted_duration}")#Scraping completed in
         browser.close()
-        return output_path
+        return {"excel": output_path_excel, "json": output_path_json}
 
 # Inputs example
 # scraper(keyword, location, limit)

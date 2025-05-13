@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, jsonify, send_file
+from flask import Flask, render_template, request, jsonify, send_file, send_from_directory
 from maps import maps_scraper
 from flask_socketio import SocketIO, emit
 import os
@@ -44,7 +44,8 @@ def scrape_maps():
     try:
         # Call scraper
         output_path = maps_scraper(keyword, location, limit, log_callback=log_message, proxy=proxy)
-        return jsonify({"success": True, "filename": output_path})
+        json_file = os.path.basename(output_path["json"])
+        return jsonify({"success": True, "json_file": json_file})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)})
     
@@ -52,6 +53,25 @@ def scrape_maps():
 def log_message(message):
     print(f"Log emitted: {message}")
     socketio.emit('log', {'message': message})
+
+# Result for maps scraper
+@app.route('/result-maps')
+def result_maps():
+    file = request.args.get('file')
+    if not file:
+        return "File parameter is missing", 400
+
+    # Check if the file exists
+    file_path = os.path.join('outputs', file)
+    if not os.path.exists(file_path):
+        return "File not found", 404
+
+    return render_template('result-maps.html', file=file)
+
+# For downloading files
+@app.route('/outputs/<path:filename>')
+def serve_output_file(filename):
+    return send_from_directory('outputs', filename)
 
 # API endpoint for maps scraper
 # curl -X POST http://127.0.0.1:5000/api/scraper-maps ^

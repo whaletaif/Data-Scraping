@@ -1,0 +1,99 @@
+<body dir="rtl" style="font-family: 'Cairo', sans-serif; background-color: #ffffff;">
+  <section style="padding: 2rem;">
+    <h2 style="color: #4e9a96; text-align: right;">نتيجة السحب من خرائط قوقل</h2>
+
+    <!-- بيانات عامة -->
+    <!-- <div style="background: #ffffff; padding: 1rem; margin: 2rem auto; max-width: 700px; border-radius: 12px;">
+      <div style="border: 2px solid rgb(94, 173, 173); padding: 1rem; border-radius: 12px;">
+        <div style="text-align: right; margin-bottom: 1rem; color: rgb(127, 215, 127);">
+          <strong id="statusMessage">تم الاستخراج بنجاح</strong>
+          <hr style="margin: 1.5rem 0; border-top: 1px solid #ccc;">
+        </div>
+
+        <div style="display: flex; justify-content: space-between; text-align: center;">
+          <div style="flex: 1; padding: 1rem;">
+            <strong>الاستيعاب الكلي</strong><br>
+            <span id="totalCapacity">--</span>
+          </div>
+          <div style="flex: 1; padding: 1rem;">
+            <strong>تاريخ السحب</strong><br>
+            <span id="drawDate">--</span>
+          </div>
+          <div style="flex: 1; padding: 1rem;">
+            <strong>نسبة الاستيعاب</strong><br>
+            <span id="capacityPercentage">--%</span>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- الجدول -->
+    <div style="background: #fff; padding: 1.5rem; margin: 2rem auto; max-width: 1000px; border: 1px solid #ccc; border-radius: 12px;">
+      <table id="data-table" style="width: 100%; border-collapse: collapse; font-size: 16px;">
+        <thead>
+          <tr style="border-bottom: 2px solid #ccc;">
+            <th style="padding: 10px;">الاسم</th>
+            <th style="padding: 10px;">التقييم</th>
+            <th style="padding: 10px;">العنوان</th>
+            <th style="padding: 10px;">الموقع الإلكتروني</th>
+            <th style="padding: 10px;">رقم الهاتف</th>
+            <th style="padding: 10px;">الرابط</th>
+          </tr>
+        </thead>
+        <tbody id="table-body" style="word-wrap: break-word; word-break: break-word; overflow-wrap: break-word;">
+          <!-- الصفوف ستتم إضافتها هنا عبر JavaScript -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- زر تصدير -->
+  <div style="margin-top: 1rem; text-align: center;">
+    <a id="download-json" href="#" download style="margin-right: 10px;">تحميل JSON</a>
+    <a id="download-excel" href="#" style="margin-left: 10px;">تحميل Excel</a>
+  </div>
+
+  <!-- نافذة التحميل -->
+  <div id="exportModal" style="display: none; position: fixed; bottom: 0; right: 0; left: 0; background: white; border-top: 2px solid #ccc; padding: 1rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); max-width: 400px; margin: auto;">
+    <div style="text-align: right;">
+      <button onclick="document.getElementById('exportModal').style.display='none'" style="background: none; border: none; font-size: 18px;">✕</button>
+    </div>
+    <h3 style="color: #147b8a;">تحميل ملف السحب</h3>
+    <label for="file-type">نوع الملف:</label>
+    <select id="file-type" style="width: 100%; padding: 8px; margin: 10px 0;">
+      <option value="csv">CSV</option>
+      <option value="xlsx">Excel</option>
+    </select>
+    <button id="downloadBtn" style="background-color: #147b8a; color: white; border: none; padding: 10px 20px; border-radius: 8px;">تحميل</button>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", async () => {
+      const urlParams = new URLSearchParams(window.location.search);
+      const file = urlParams.get("file");
+
+      // Fetch JSON data
+      const response = await fetch(`/outputs/${file}`);
+      const data = await response.json();
+
+      // Populate table
+      const tableBody = document.getElementById("table-body");
+      data.forEach(item => {
+        const row = document.createElement("tr");
+        row.innerHTML = `
+          <td style="padding: 10px;">${item.name}</td>
+          <td style="padding: 10px;">${item.rating}</td>
+          <td style="padding: 10px;">${item.address}</td>
+          <td style="padding: 10px;">${item.website}</td>
+          <td style="padding: 10px;">${item.phone_number}</td>
+          <td style="padding: 10px;"><a href="${item.link}" target="_blank">${item.link}</a></td>
+        `;
+        tableBody.appendChild(row);
+      });
+
+      // Set download links
+      document.getElementById("download-json").href = `/outputs/${file}`;
+      document.getElementById("download-excel").href = `/outputs/${file.replace('.json', '.xlsx')}`;
+    });  
+  </script>
+</body>

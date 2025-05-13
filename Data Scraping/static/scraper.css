@@ -159,7 +159,10 @@ body {
 
 .tabs [class^="tab"] [type="radio"]:checked+div,
 .tabs [class*=" tab"] [type="radio"]:checked+div {
+    display: block;
     opacity: 1;
+    position: relative;
+    z-index: 1;
 }
 
 .tabs label.checked-label {
@@ -169,7 +172,7 @@ body {
 
 .tabs [class^="tab"] [type="radio"]+div,
 .tabs [class*=" tab"] [type="radio"]+div {
-    display: block;
+    display: none;
     opacity: 0;
     padding: 2rem 0;
     width: 300%;
@@ -558,6 +561,14 @@ td {
 
 th {
     background-color: transparent;
+}
+
+table td {
+    word-wrap: break-word;
+    word-break: break-word;
+    white-space: normal;
+    max-width: 300px;
+    overflow-wrap: break-word;
 }
 
 .wide-column {
