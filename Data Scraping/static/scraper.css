@@ -39,6 +39,7 @@ body {
 .info-card #button-content {
     display: flex;
     justify-content: space-between;
+    margin-left: 100px;
 }
 
 .info-card #button-content button {
@@ -83,6 +84,7 @@ body {
     width: 210px;
     height: 210px;
     overflow: hidden;
+    margin-right: 100px;
 }
 
 .icon-container img {

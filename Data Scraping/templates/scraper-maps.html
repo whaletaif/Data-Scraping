@@ -19,7 +19,7 @@
             </ul>
 
 
-            <div class="login-button">
+            <div class="login-button" style=" align-self: flex-end; margin-right: 1700px ;">
                 <a href="">تسجيل</a>
                 <button>تسجيل الدخول</button>
             </div>
@@ -31,8 +31,7 @@
 
 <body>
     <div class="back">
-        <p> رجوع </p>
-        <a  href="{{ url_for('index') }}"><button class="backbutt"> <img src="{{ url_for('static', filename='backarrow.png') }}" alt=""> </button></a>
+        <a  href="{{ url_for('index') }}"><button class="backbutt"> <img src="{{ url_for('static', filename='backarrow.png') }}" alt="" style="margin-left: 1900px; justify-self: flex-end; align-items: flex-end;"> </button></a>
 
     </div>
 
@@ -117,7 +116,7 @@
             <p> .يمكنك سحب ١٠٠ مكان واكثر ب استخدام كلمات مفتاحيه ، اقسام ، مواقع. احصل على العناوين والبيانات والخ </p>
         </div>
         <div class="icon-container">
-            <img src="{{ url_for('static', filename='googlemaps.png') }}">
+            <img src="{{ url_for('static', filename='googlemaps.png') }}" >
         </div>
     </div>
 
@@ -125,7 +124,7 @@
     <div class="tabs">
 
         <div class="tab-2">
-            <label for="tab2-3">المشاكل</label>
+            <label for="tab2-3"> رسائل </label>
             <input id="tab2-3" name="tabs-two" type="radio">
             <div class="table">
                 <table>
@@ -194,7 +193,7 @@
                         <h3 id="lang"> اللغة </h3>
                         <input type="text" placeholder="العربية">
                     </div> -->
-                    <button type="submit">Submit</button>
+                    <button type="submit" style="background-color: transparent; border: 1px solid #075E72; padding: 15px; border-radius: 5px; margin-top: 50px; color: #075E72 ; font-size: 15px;">Submit</button>
                 </form>
             </div>
         </div>

@@ -54,11 +54,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     if (mode === 'signup') {
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => window.location.href = '/mainpage')
+        .then(() => window.location.href = '/')
         .catch(err => alert(err.message));
     } else {
       signInWithEmailAndPassword(auth, email, password)
-        .then(() => window.location.href = '/mainpage')
+        .then(() => window.location.href = '/')
         .catch(err => alert(err.message));
     }
   });
@@ -66,7 +66,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // Google Sign-In
   googleBtn.addEventListener('click', () => {
     signInWithPopup(auth, provider)
-      .then(() => window.location.href = '/mainpage')
+      .then(() => window.location.href = '/')
       .catch(err => alert(err.message));
   });
 });
