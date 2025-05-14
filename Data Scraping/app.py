@@ -6,6 +6,7 @@ from urllib.parse import quote
 
 app = Flask(__name__)
 socketio = SocketIO(app)
+os.makedirs('outputs', exist_ok=True)
 
 # API Token
 API_TOKEN = "token123"
@@ -113,9 +114,11 @@ def api_scrape_maps():
     try:
         # Call scraper
         output_path = maps_scraper(keyword, location, limit, log_callback=log_message, proxy=proxy)
-        filename = os.path.basename(output_path)
-        encoded_filename = quote(filename)
-        return jsonify({"success": True, "filename": encoded_filename})
+        filename_json = os.path.basename(output_path["json"])
+        filename_excel = os.path.basename(output_path["excel"])
+        encoded_filename_json = quote(filename_json)
+        encoded_filename_excel = quote(filename_excel)
+        return jsonify({"success": True, "json_file": encoded_filename_json, "excel_file": encoded_filename_excel})
     except Exception as e:
         return jsonify({"success": False, "error": str(e)}), 500
 
