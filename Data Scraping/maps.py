@@ -138,6 +138,7 @@ def maps_scraper(keyword, location, limit=None, log_callback=None, proxy=None):
         # Convert data collection to dataframe
         df = pd.DataFrame(all_outputs)
         filename = f"{keyword}_في_{location}"
+        os.makedirs('outputs', exist_ok=True)
 
         # Save as Excel
         output_path_excel = os.path.join('outputs', f'{filename}.xlsx')
