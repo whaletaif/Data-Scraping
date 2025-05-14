@@ -26,8 +26,8 @@ const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    document.getElementById('emailField').textContent = `البريد الإلكتروني: ${user.email}`;
-    document.getElementById('nameInput').value = user.displayName || '';
+   document.querySelector('.info-box.email').textContent = user.email;
+   document.getElementById('name-display').textContent = user.displayName || 'بدون اسم';
 
     // حفظ الاسم الجديد
     document.getElementById('updateNameBtn').addEventListener('click', () => {
@@ -41,9 +41,10 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// تسجيل الخروج
+
+// ✅ Logout
 document.getElementById('logoutBtn').addEventListener('click', () => {
   signOut(auth).then(() => {
-    window.location.href = 'signup.html';
+    window.location.href = '/'; // or main page
   });
 });

@@ -7,6 +7,11 @@ import {
   GoogleAuthProvider,
   signInWithPopup
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import {
+  getFirestore,
+  doc,
+  setDoc
+} from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // Firebase config
 const firebaseConfig = {
@@ -20,14 +25,14 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
+const db = getFirestore(app);
 
-// Get DOM elements safely
+// Wait for DOM to load
 window.addEventListener("DOMContentLoaded", () => {
   const loginTab = document.getElementById('loginTab');
   const signupTab = document.getElementById('signupTab');
   const nameField = document.getElementById('nameField');
   const form = document.getElementById('form');
-  const continueBtn = document.querySelector('.continue-btn');
   const googleBtn = document.querySelector('.google-btn');
 
   let mode = 'login'; // default mode
@@ -49,12 +54,23 @@ window.addEventListener("DOMContentLoaded", () => {
   // Form submit (Email/Password)
   form.addEventListener('submit', (e) => {
     e.preventDefault();
+    const nameInput = document.getElementById('name'); // Make sure this ID exists in your HTML
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
     if (mode === 'signup') {
       createUserWithEmailAndPassword(auth, email, password)
-        .then(() => window.location.href = '/')
+        .then(async (userCredential) => {
+          const user = userCredential.user;
+
+          // Save user info to Firestore
+          await setDoc(doc(db, "users", user.uid), {
+            displayName: nameInput.value,
+            email: user.email
+          });
+
+          window.location.href = '/';
+        })
         .catch(err => alert(err.message));
     } else {
       signInWithEmailAndPassword(auth, email, password)
@@ -66,7 +82,17 @@ window.addEventListener("DOMContentLoaded", () => {
   // Google Sign-In
   googleBtn.addEventListener('click', () => {
     signInWithPopup(auth, provider)
-      .then(() => window.location.href = '/')
+      .then(async (result) => {
+        const user = result.user;
+
+        // Save Google user info to Firestore
+        await setDoc(doc(db, "users", user.uid), {
+          displayName: user.displayName,
+          email: user.email
+        });
+
+        window.location.href = '/';
+      })
       .catch(err => alert(err.message));
   });
 });

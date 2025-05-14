@@ -16,15 +16,17 @@
       </ul>
       <div class="log-ui">
         <div class="login-button" style="align-self: flex-end; margin-right: 1700px ;">
-          <a href="index.html">تسجيل</a>
-          <a href="index.html"><button class="signupbu">تسجيل الدخول</button></a>
+          <a href="{{ url_for('signup') }}">تسجيل</a>
+          <a href="{{ url_for('signup') }}"><button class="signupbu">تسجيل الدخول</button></a>
         </div>
         <div class="user-info" style="display: none;">
           <span> مرحباً </span>
           <span class="user-name"> اسم المستخدم </span>
-          <a href="">
-            <img class="user-photo" src="static/userava.png">
+          <a href="{{ url_for('setting') }}">
+          <img class="user-photo" src="static/userava.png">
           </a>
+            
+          
 
         </div>
       </div>
