@@ -1,3 +1,29 @@
+<!DOCTYPE html>
+<html lang="ar">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='header.css') }}">
+
+<head>
+ <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> صفحة النتائج </title>
+ <nav>
+            <img src="static/logo.png" style="    height: 50px;
+             width: 50px;
+             float: right;
+             padding-right: 30px;" />
+            <ul>
+                <li><a href="/"> من نحن؟ </a></li>
+                <li><a href="/"> الصفحة الرئيسية</a></li>
+            </ul>
+
+            <div class="login-button" style=" align-self: flex-end; margin-right: 1700px ; display: flex; align-items: center;">
+                <a href="/signup" >تسجيل</a>
+                <a href="/signup" ><button>تسجيل الدخول</button></a>
+            </div>
+        </nav>
+        <div class="line"></div>
+
+</head>
 <body dir="rtl" style="font-family: 'Cairo', sans-serif; background-color: #ffffff;">
   <section style="padding: 2rem;">
     <h2 style="color: #4e9a96; text-align: right;">نتيجة السحب من خرائط قوقل</h2>
@@ -97,3 +123,4 @@
     });  
   </script>
 </body>
+</html>
