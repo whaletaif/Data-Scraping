@@ -1,0 +1,44 @@
+footer {
+  background: url("../static/background2.png") no-repeat center center fixed; 
+  background-size: cover;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 40px;
+  align-items: center;
+  flex-wrap: wrap;
+  direction: rtl;
+}
+
+.logo-icon-footer {
+  width: 90px;
+  height: 80px;
+  margin-right: 10px;
+}
+
+.footer-nav a {
+  margin: 0 10px;
+  color: #075E72;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  top: -5px; 
+}
+
+.footer-contact {
+  order: 2;
+  color: #075E72; 
+}
+
+.footer-nav {
+  order: 1; 
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px; 
+}
+
+.social-icons img {
+  width: 24px;
+  margin: 0 10px;
+}

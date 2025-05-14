@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="ar">
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='header.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='footer.css') }}">
 
 <head>
- <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title> صفحة النتائج </title>
- <nav>
-            <img src="static/logo.png" style="    height: 50px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> صفحة النتائج </title>
+  <nav>
+    <img src="static/logo.png" style="    height: 50px;
              width: 50px;
              float: right;
              padding-right: 30px;" />
-            <ul>
-                <li><a href="/"> من نحن؟ </a></li>
-                <li><a href="/"> الصفحة الرئيسية</a></li>
-            </ul>
+    <ul>
+      <li><a href="/"> من نحن؟ </a></li>
+      <li><a href="/"> الصفحة الرئيسية</a></li>
+    </ul>
 
-            <div class="login-button" style=" align-self: flex-end; margin-right: 1700px ; display: flex; align-items: center;">
-                <a href="/signup" >تسجيل</a>
-                <a href="/signup" ><button>تسجيل الدخول</button></a>
-            </div>
-        </nav>
-        <div class="line"></div>
+    <div class="login-button" style=" align-self: flex-end; margin-right: 1700px ; display: flex; align-items: center;">
+      <a href="/signup">تسجيل</a>
+      <a href="/signup"><button>تسجيل الدخول</button></a>
+    </div>
+  </nav>
+  <div class="line"></div>
 
 </head>
+
 <body dir="rtl" style="font-family: 'Cairo', sans-serif; background-color: #ffffff;">
   <section style="padding: 2rem;">
     <h2 style="color: #4e9a96; text-align: right;">نتيجة السحب من خرائط قوقل</h2>
@@ -54,7 +56,8 @@
     </div> -->
 
     <!-- الجدول -->
-    <div style="background: #fff; padding: 1.5rem; margin: 2rem auto; max-width: 1000px; border: 1px solid #ccc; border-radius: 12px;">
+    <div
+      style="background: #fff; padding: 1.5rem; margin: 2rem auto; max-width: 1000px; border: 1px solid #ccc; border-radius: 12px;">
       <table id="data-table" style="width: 100%; border-collapse: collapse; font-size: 16px;">
         <thead>
           <tr style="border-bottom: 2px solid #ccc;">
@@ -75,14 +78,16 @@
 
   <!-- زر تصدير -->
   <div style="margin-top: 1rem; text-align: center;">
-    <a id="download-json" href="#" download style="margin-right: 10px;">  تحميل بصيغة JSON</a>
+    <a id="download-json" href="#" download style="margin-right: 10px;"> تحميل بصيغة JSON</a>
     <a id="download-excel" href="#" style="margin-left: 10px;"> تحميل بصيغة Excel</a>
   </div>
 
   <!-- نافذة التحميل -->
-  <div id="exportModal" style="display: none; position: fixed; bottom: 0; right: 0; left: 0; background: white; border-top: 2px solid #ccc; padding: 1rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); max-width: 400px; margin: auto;">
+  <div id="exportModal"
+    style="display: none; position: fixed; bottom: 0; right: 0; left: 0; background: white; border-top: 2px solid #ccc; padding: 1rem; box-shadow: 0 -2px 10px rgba(0,0,0,0.1); max-width: 400px; margin: auto;">
     <div style="text-align: right;">
-      <button onclick="document.getElementById('exportModal').style.display='none'" style="background: none; border: none; font-size: 18px;">✕</button>
+      <button onclick="document.getElementById('exportModal').style.display='none'"
+        style="background: none; border: none; font-size: 18px;">✕</button>
     </div>
     <h3 style="color: #147b8a;">تحميل ملف السحب</h3>
     <label for="file-type">نوع الملف:</label>
@@ -90,7 +95,8 @@
       <option value="csv">CSV</option>
       <option value="xlsx">Excel</option>
     </select>
-    <button id="downloadBtn" style="background-color: #147b8a; color: white; border: none; padding: 10px 20px; border-radius: 8px;">تحميل</button>
+    <button id="downloadBtn"
+      style="background-color: #147b8a; color: white; border: none; padding: 10px 20px; border-radius: 8px;">تحميل</button>
   </div>
 
   <script>
@@ -123,4 +129,24 @@
     });  
   </script>
 </body>
+<footer>
+
+  <nav class="footer-nav">
+    <img src="static/logo.png" alt="بحث" class="logo-icon-footer">
+    <a href="home.html">الرئيسية</a>
+    <a href="who.html">من نحن؟</a>
+  </nav>
+
+  <div class="footer-contact">
+    <p>تواصل معنا</p>
+    <p>📞 +0555555</p>
+    <div class="social-icons">
+      <a href="#"><img src="static/insta.png" alt="Instagram"></a>
+      <a href="#"><img src="static/email.png" alt="Email"></a>
+      <a href="#"><img src="static/twitter.png" alt="Twitter"></a>
+    </div>
+  </div>
+
+</footer>
+
 </html>
