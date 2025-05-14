@@ -5,7 +5,8 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import {
   getFirestore,
@@ -54,7 +55,7 @@ window.addEventListener("DOMContentLoaded", () => {
   // Form submit (Email/Password)
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const nameInput = document.getElementById('name'); // Make sure this ID exists in your HTML
+    const nameInput = document.getElementById('nameField'); // Make sure this ID exists in your HTML
     const email = document.getElementById('email').value;
     const password = document.getElementById('password').value;
 
@@ -63,12 +64,18 @@ window.addEventListener("DOMContentLoaded", () => {
         .then(async (userCredential) => {
           const user = userCredential.user;
 
+          // Save the displayName to Firebase Authentication
+          await updateProfile(user, { displayName: nameInput.value });
+          
           // Save user info to Firestore
           await setDoc(doc(db, "users", user.uid), {
             displayName: nameInput.value,
             email: user.email
           });
-
+          
+          alert("تم إنشاء الحساب بنجاح!");
+          const successMessage = document.getElementById('successMessage');
+          successMessage.style.display = 'block';
           window.location.href = '/';
         })
         .catch(err => alert(err.message));
