@@ -11,8 +11,8 @@
       <img class="logo" src="static/logo.png" />
 
       <ul>
-        <li><a href="/"> الصفحة الرئيسية</a></li>
-        <li><a href="who.html"> من نحن؟ </a></li>
+        <li><a href="{{ url_for('index') }}"> الصفحة الرئيسية</a></li>
+        <li><a href="#"> من نحن؟ </a></li>
       </ul>
       <div class="log-ui">
         <div class="login-button" style="align-self: flex-end; margin-right: 1700px ;">
@@ -115,8 +115,8 @@
 
     <nav class="footer-nav">
         <img src="static/logo.png" alt="بحث" class="logo-icon-footer">
-        <a href="home.html">الرئيسية</a>
-        <a href="who.html">من نحن؟</a>
+        <a href="{{ url_for('index') }}">الرئيسية</a>
+        <a href="#">من نحن؟</a>
       </nav>
 
     <div class="footer-contact">

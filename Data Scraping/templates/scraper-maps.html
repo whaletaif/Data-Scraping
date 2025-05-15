@@ -15,14 +15,14 @@
            padding-right: 30px; padding-top: 10px;" />
         <nav>
             <ul>
-                <li><a href="/"> من نحن؟ </a></li>
+                <li><a href="#"> من نحن؟ </a></li>
                 <li><a href="{{ url_for('index') }}"> الصفحة الرئيسية</a></li>
             </ul>
 
 
             <div class="login-button" style=" align-self: flex-end; margin-right: 1700px ;">
-                <a href="">تسجيل</a>
-                <button>تسجيل الدخول</button>
+                <a href="{{ url_for('signup') }}">تسجيل</a>
+                <a href="{{ url_for('signup') }}" ><button>تسجيل الدخول</button></a>
             </div>
             <div class="line"></div>
         </nav>
@@ -204,8 +204,8 @@
 
     <nav class="footer-nav">
         <img src="static/logo.png" alt="بحث" class="logo-icon-footer">
-        <a href="home.html">الرئيسية</a>
-        <a href="who.html">من نحن؟</a>
+        <a href="{{ url_for('index') }}">الرئيسية</a>
+        <a href="#">من نحن؟</a>
       </nav>
 
     <div class="footer-contact">
