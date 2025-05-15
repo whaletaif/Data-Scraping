@@ -4,6 +4,7 @@ from flask_socketio import SocketIO, emit
 import os
 from urllib.parse import quote
 
+#app
 app = Flask(__name__)
 socketio = SocketIO(app)
 os.makedirs('outputs', exist_ok=True)
