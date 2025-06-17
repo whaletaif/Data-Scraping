@@ -1,3 +1,5 @@
+
+/* Headr */
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -5,13 +7,19 @@ body {
   color: #075e72;
 }
 
-/* الرئيسية */
 .main-section {
   display: flex;
   justify-content: space-between;
   padding: 40px;
   gap: 20px;
   flex-wrap: wrap;
+}
+
+.log-ui {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+  
 }
 
 .left-section {
@@ -25,7 +33,6 @@ body {
 }
 
 .line {
- 
   background-color: #075e72;
   margin: 0;
   padding: 0;
@@ -123,35 +130,61 @@ body {
   min-height: 430px;
 }
 
-/* الشريط العلوي
-.top-bar {
+
+/* الفوتر */
+/* footer {
+  background: url("../static/background2.png") no-repeat center center fixed; 
+  background-size: cover;
   display: flex;
-  justify-content: flex-start;
-  gap: 80px;
-  padding: 15px 30px;
-  background-color: white;
+  justify-content: space-between;
+  padding: 20px 40px;
+  align-items: center;
+  flex-wrap: wrap;
   direction: rtl;
 }
-.left-section{
-  margin-right: 50px;
+
+.logo-icon-footer {
+  width: 90px;
+  height: 80px;
+  margin-right: 10px;
 }
-.img-text{
-  display: flex;
-  align-items: center;
-  gap: 50px;
+
+.footer-nav a {
+  margin: 0 10px;
+  color: #075E72;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 18px;
+  position: relative;
+  top: -5px; 
 }
-.right-side {
+
+.footer-contact {
+  order: 2;
+  color: #075E72; 
   display: flex;
-  align-items: center;
+  flex-direction: column;
+  align-items: flex-start; 
+  text-align: right;
   gap: 10px;
 }
 
-.top-logo {
-  width: 200px;
+.footer-nav {
+  order: 1; 
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px; 
+}
+
+.social-icons img {
+  width: 24px;
+  margin: 0 10px;
 } */
 
 
-/* الفوتر */
+
+
 footer {
   background: url("../static/background2.png") no-repeat center center fixed; 
   background-size: cover;
