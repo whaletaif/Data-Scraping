@@ -22,6 +22,35 @@
     line-height: 2.5;
     direction: rtl; 
 }
+
+/* Added form this */
+.start {
+  width: 100%;
+  background-position: center;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+.login-button {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+
+}
+
+.line {
+  background-color: #075e72;
+  margin-top: -30px; 
+}
+
+/* To .line */
+
+
+
+
 .search-container{
     padding: 50px;
 }
