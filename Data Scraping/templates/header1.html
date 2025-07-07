@@ -1,0 +1,26 @@
+<header class="head">
+  <link rel="stylesheet" href="{{ url_for('static', filename='header1.css') }}">
+  <nav>
+    <img class="logo" src="{{ url_for('static', filename='logo.png') }}" />
+    <ul>
+       <li><a href="{{ url_for('index') }}"> الصفحة الرئيسية</a></li>
+      <li><a href="#"> من نحن؟ </a></li>
+     
+    </ul>
+
+    <div class="log-ui" id="auth-wrapper" style="visibility: hidden;">
+      <div class="login-button">
+        <a href="{{ url_for('signup') }}">تسجيل</a>
+        <a href="{{ url_for('signup') }}"><button class="signupbu">تسجيل الدخول</button></a>
+      </div>
+      <div class="user-info" style="display: none;">
+        <span> مرحباً </span>
+        <span class="user-name"> اسم المستخدم </span>
+        <a href="{{ url_for('setting') }}">
+          <img class="user-photo" src="{{ url_for('static', filename='userava.png') }}">
+        </a>
+      </div>
+    </div>
+  </nav>
+  <div class="line"></div>
+</header>

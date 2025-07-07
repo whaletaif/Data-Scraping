@@ -4,10 +4,20 @@ html {
 
 header {
     padding-top: 20px;
+    direction: rtl;
 }
 
 nav {
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+}
+
+.log-ui {
+  margin-right: auto; /* pushes it to the left visually */
+  display: flex;
+  align-items: center;
 }
 
 .head img{
@@ -22,6 +32,7 @@ nav ul {
     float: right;
     padding-right: 30px;
     list-style: none;
+    gap: 15px;
 }
 
 nav ul li a {
@@ -75,6 +86,7 @@ nav ul li a {
     text-align: right;
     justify-items: center;
     padding-left: 30px;
+   
 }
 
 .log-ui img {
@@ -91,4 +103,5 @@ nav ul li a {
 
 .user-info a {
     text-decoration: none;
+     
 }

@@ -43,6 +43,7 @@ window.addEventListener("DOMContentLoaded", () => {
     signupTab.classList.remove('active');
     nameField.style.display = 'none';
     mode = 'login';
+    document.getElementById('errorMessage').style.display = 'none';
   });
 
   signupTab.addEventListener('click', () => {
@@ -50,6 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
     loginTab.classList.remove('active');
     nameField.style.display = 'block';
     mode = 'signup';
+    document.getElementById('errorMessage').style.display = 'none';
   });
 
   // Form submit (Email/Password)
@@ -78,11 +80,21 @@ window.addEventListener("DOMContentLoaded", () => {
           successMessage.style.display = 'block';
           window.location.href = '/';
         })
-        .catch(err => alert(err.message));
+        .catch(err => {
+  const errorBox = document.getElementById('errorMessage');
+  errorBox.style.display = 'none';
+  errorBox.textContent = translateError(err.code);
+  errorBox.style.display = 'block';
+});
     } else {
       signInWithEmailAndPassword(auth, email, password)
         .then(() => window.location.href = '/')
-        .catch(err => alert(err.message));
+        .catch(err => {
+  const errorBox = document.getElementById('errorMessage');
+  errorBox.style.display = 'none';
+  errorBox.textContent = translateError(err.code);
+  errorBox.style.display = 'block';
+});
     }
   });
 
@@ -103,3 +115,23 @@ window.addEventListener("DOMContentLoaded", () => {
       .catch(err => alert(err.message));
   });
 });
+
+
+function translateError(code) {
+  switch(code) {
+    case 'auth/invalid-email':
+      return 'البريد الإلكتروني غير صالح.';
+    case 'auth/user-not-found':
+      return 'المستخدم غير موجود.';
+    case 'auth/wrong-password':
+      return 'كلمة المرور غير صحيحة.';
+    case 'auth/email-already-in-use':
+      return 'البريد الإلكتروني مستخدم بالفعل.';
+    case 'auth/weak-password':
+      return 'كلمة المرور ضعيفة، يجب أن تكون 6 أحرف على الأقل.';
+    case 'auth/missing-password':
+      return 'يرجى إدخال كلمة المرور.';
+    default:
+      return 'حدث خطأ، يرجى المحاولة مرة أخرى.';
+  }
+}

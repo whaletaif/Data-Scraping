@@ -4,67 +4,40 @@
   <meta charset="UTF-8">
   <title>صفحة المستخدم</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='setting.css') }}">
+  <style>
+    .hidden {
+      visibility: hidden;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <img src="static/logo.png" alt="بحث" class="logo-icon">
-    <nav>
-      <a href="{{ url_for('index') }}">الرئيسية</a>
-      <a href="#">من نحن؟</a>
-    </nav>
-  </header>
-  <hr class="divider">
-
-  <!-- Main content -->
   <main>
     <div class="background-img"></div>
-    <div class="white-box-wrapper">
+    <div class="white-box-wrapper"> 
       <div class="content-box">
+
         <!-- Left section -->
         <div class="left-section">
           <img src="static/userava.png" alt="User" class="userava-icon">
-          <p class="username">أحمد</p>
+          <p class="username hidden" id="user-name">اسم المستخدم</p>
           <button id="logoutBtn" class="logout-btn">تسجيل خروج</button>
         </div>
 
         <!-- Right section -->
         <div class="right-section">
-          <div class="info-box email">user@hotmail.com</div>
-         <!-- Inside .right-section -->
-<div class="info-box name">
-  <span id="name-display">أحمد</span>
-  <button id="edit-name" class="edit-button" title="تعديل الاسم">
-    ✏️
-  </button>
-</div>
+          <div class="info-box email hidden" id="user-email"></div>
+          <div class="info-box name hidden" id="user-name-box">
+            <span id="name-display"></span>
+            <button id="edit-name" class="edit-button" title="تعديل الاسم">✏️</button>
+          </div>
         </div>
+
       </div>
     </div>
   </main>
 
-  <!-- Footer -->
-  <footer>
-
-    <nav class="footer-nav">
-        <img src="static/logo.png" alt="بحث" class="logo-icon-footer">
-        <a href="{{ url_for('index') }}">الرئيسية</a>
-        <a href="#">من نحن؟</a>
-      </nav>
-
-    <div class="footer-contact">
-      <p>تواصل معنا</p>
-      <p>📞 +0555555</p>
-      <div class="social-icons">
-        <a href="#"><img src="static/insta.png" alt="Instagram"></a>
-        <a href="#"><img src="static/email.png" alt="Email"></a>
-        <a href="#"><img src="static/twitter.png" alt="Twitter"></a>
-      </div>
-    </div>
-   
-  </footer>
-
+  {% include 'footer.html' %}
   <script type="module" src="{{ url_for('static', filename='setting.js') }}"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@
     direction: rtl; 
 }
 
-/* Added form this */
+
 .start {
   width: 100%;
   background-position: center;
@@ -34,19 +34,7 @@ body, html {
   padding: 0;
 }
 
-.login-button {
-  margin-left: auto;
-  display: flex;
-  gap: 10px;
 
-}
-
-.line {
-  background-color: #075e72;
-  margin-top: -30px; 
-}
-
-/* To .line */
 
 
 
@@ -265,6 +253,8 @@ body, html {
     position: relative;
     margin-top: 50px;
     margin-left: 70px;
+    direction: rtl;
+    text-align: right;
 }
 .card-container:hover{
     background-color: #A4D5DA; 
@@ -278,8 +268,8 @@ body, html {
 
 .card-title {
     color: #075E72; 
-    margin-top: 0;
-    margin-bottom: 10px;
+    /* margin-top: 0;
+    margin-bottom: 10px; */
     font-size: 20px;
 }
 
@@ -287,7 +277,7 @@ body, html {
     color: #555; 
     font-size: 8px;
     line-height:1.3;
-    margin-bottom: 0;
+    margin-bottom: 3px;
 }
 
 .image-container {
@@ -323,3 +313,4 @@ body, html {
     display: flex;
     justify-content: space-between;
 }
+

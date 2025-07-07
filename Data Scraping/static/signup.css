@@ -82,6 +82,7 @@ body {
     margin-top: 20px;
     gap: 15px;
   }
+
   
   .google-btn {
     background: none;
@@ -103,7 +104,20 @@ body {
     padding: 10px 20px;
     cursor: pointer;
     border-radius: 5px;
-    width: 80px;
+    width: 100px;
+    height: 40px;
     color: #075E72;
     font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
   }
+
+
+  /* .error-message {
+   display: none;
+   color: red; 
+   text-align: center; 
+   margin-top: 10px;
+  } */

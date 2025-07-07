@@ -1,0 +1,18 @@
+<footer>
+  <link rel="stylesheet" href="{{ url_for('static', filename='footer.css') }}">
+  <nav class="footer-nav">
+    <img src="{{ url_for('static', filename='logo.png') }}" alt="بحث" class="logo-icon-footer">
+    <a href="{{ url_for('index') }}">الرئيسية</a>
+    <a href="#">من نحن؟</a>
+  </nav>
+
+  <div class="footer-contact">
+    <p>تواصل معنا</p>
+    <p>📞 +0555555</p>
+    <div class="social-icons">
+      <a href="#"><img src="{{ url_for('static', filename='insta.png') }}" alt="Instagram"></a>
+      <a href="#"><img src="{{ url_for('static', filename='email.png') }}" alt="Email"></a>
+      <a href="#"><img src="{{ url_for('static', filename='twitter.png') }}" alt="Twitter"></a>
+    </div>
+  </div>
+</footer>

@@ -1,37 +1,23 @@
 <!DOCTYPE html>
 <html lang="ar">
-<link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
-<link rel="stylesheet" href="{{ url_for('static', filename='scraper.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='footer.css') }}">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>data scraper</title>
-    <div>
-        <img class="logo" src="{{ url_for('static', filename='logo.png') }}" style="height: 50px;
-           width: 50px;
-           float: right;
-           padding-right: 30px; padding-top: 10px;" />
-        <nav>
-            <ul>
-                <li><a href="#"> من نحن؟ </a></li>
-                <li><a href="{{ url_for('index') }}"> الصفحة الرئيسية</a></li>
-            </ul>
-
-
-            <div class="login-button" style=" align-self: flex-end; margin-right: 1700px ;">
-                <a href="{{ url_for('signup') }}">تسجيل</a>
-                <a href="{{ url_for('signup') }}" ><button>تسجيل الدخول</button></a>
-            </div>
-            <div class="line"></div>
-        </nav>
-    </div>
+    <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='scraper.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='footer.css') }}">
     <script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+    
+
 </head>
 
-<body>
     
+
+<body class="scraper-body">
+
+    {% include 'header1.html' %}
+
 
     <div class="info-card">
         <div id="button-content">
@@ -131,7 +117,7 @@
                         </tr>
                     </thead>
                     <tbody id="error-rows">
-                        <!-- Logs will be dynamically added here -->
+                      
                     </tbody>
                 </table>
             </div>
@@ -199,25 +185,12 @@
     </div>
 
     <script src="{{ url_for('static', filename='script.js') }}"></script>
-</body>
- <footer>
 
-    <nav class="footer-nav">
-        <img src="static/logo.png" alt="بحث" class="logo-icon-footer">
-        <a href="{{ url_for('index') }}">الرئيسية</a>
-        <a href="#">من نحن؟</a>
-      </nav>
-
-    <div class="footer-contact">
-      <p>تواصل معنا</p>
-      <p>📞 +0555555</p>
-      <div class="social-icons">
-        <a href="#"><img src="static/insta.png" alt="Instagram"></a>
-        <a href="#"><img src="static/email.png" alt="Email"></a>
-        <a href="#"><img src="static/twitter.png" alt="Twitter"></a>
-      </div>
-    </div>
    
-  </footer>
-  
+
+    {% include 'footer.html' %}
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+    <script type="module" src="{{ url_for('static', filename='header1.js') }}"></script>
+</body>
 </html>
