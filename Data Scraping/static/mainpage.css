@@ -235,7 +235,7 @@ body, html {
     float: right;
     padding: 10px;
     width: 550px; 
-    height: 200px;
+    height: 300px;
 }
 
 .card-container{
@@ -249,7 +249,7 @@ body, html {
     float: right;
     padding: 10px;
     width: 510px; 
-    height: 200px;
+    height: 270px;
     position: relative;
     margin-top: 50px;
     margin-left: 70px;
