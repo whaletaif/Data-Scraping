@@ -1,8 +1,13 @@
 body {
-    justify-content: center;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  color: #075E72;
 }
 
-.back {
+/* .back {
     display: flex;
     padding-top: 100px;
     padding-right: 30px;
@@ -24,7 +29,21 @@ body {
 .back p {
     color: black;
     font-size: 20px;
+} */
+
+
+/* This is for debuging 🤖: * {
+  outline: 1px solid red;
+} */
+
+
+.info-card, .tabs {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
 }
+
 
 .info-card {
     margin: auto;
