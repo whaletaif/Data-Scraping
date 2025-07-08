@@ -23,3 +23,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 });
+
+
+  // Button logic after auth status is known
+    if (tryButton) {
+      tryButton.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.location.href = user ? 'scraper-maps' : 'signup';
+      });
+    }
+  

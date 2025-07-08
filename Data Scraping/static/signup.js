@@ -120,18 +120,18 @@ window.addEventListener("DOMContentLoaded", () => {
 function translateError(code) {
   switch(code) {
     case 'auth/invalid-email':
-      return 'البريد الإلكتروني غير صالح.';
+      return 'البريد الإلكتروني غير صالح';
     case 'auth/user-not-found':
-      return 'المستخدم غير موجود.';
+      return 'المستخدم غير موجود';
     case 'auth/wrong-password':
-      return 'كلمة المرور غير صحيحة.';
+      return 'كلمة المرور غير صحيحة';
     case 'auth/email-already-in-use':
-      return 'البريد الإلكتروني مستخدم بالفعل.';
+      return 'البريد الإلكتروني مستخدم بالفعل';
     case 'auth/weak-password':
-      return 'كلمة المرور ضعيفة، يجب أن تكون 6 أحرف على الأقل.';
+      return 'كلمة المرور ضعيفة، يجب أن تكون 6 أحرف على الأقل';
     case 'auth/missing-password':
-      return 'يرجى إدخال كلمة المرور.';
+      return 'يرجى إدخال كلمة المرور';
     default:
-      return 'حدث خطأ، يرجى المحاولة مرة أخرى.';
+      return 'حدث خطأ، يرجى المحاولة مرة أخرى';
   }
 }
