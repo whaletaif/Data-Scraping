@@ -1,0 +1,37 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #F9F9F9;
+  color: #075E72;
+  margin: 0;
+  padding: 0;
+}
+
+.who-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 100px 20px;
+  min-height: 80vh;
+}
+
+.who-content {
+  max-width: 800px;
+  background-color: white;
+  padding: 40px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  text-align: right;
+  line-height: 2;
+}
+
+.who-content h1 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #075E72;
+}
+
+.who-content p {
+  font-size: 20px;
+  margin-bottom: 20px;
+  color: #075E72;
+}

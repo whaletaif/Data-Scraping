@@ -40,6 +40,10 @@ def info():
 def setting():
     return render_template('setting.html')
 
+@app.route('/who')
+def who():
+    return render_template('who.html')
+
 @app.route('/scraper-maps', methods=['POST'])
 # Scraper function
 def scrape_maps():
