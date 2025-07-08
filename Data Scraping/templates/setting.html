@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <title>صفحة المستخدم</title>
   <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='setting.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='header.css') }}">
+
   <style>
     .hidden {
       visibility: hidden;
@@ -13,6 +15,8 @@
 <body>
 
   <main>
+      {% include 'header1.html' %}
+
     <div class="background-img"></div>
     <div class="white-box-wrapper"> 
       <div class="content-box">
@@ -39,5 +43,6 @@
 
   {% include 'footer.html' %}
   <script type="module" src="{{ url_for('static', filename='setting.js') }}"></script>
+  <script type="module" src="{{ url_for('static', filename='header1.js') }}"></script>
 </body>
 </html>

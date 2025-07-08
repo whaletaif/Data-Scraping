@@ -22,14 +22,35 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   }
+
 });
 
 
-  // Button logic after auth status is known
-    if (tryButton) {
-      tryButton.addEventListener('click', (e) => {
-        e.preventDefault();
-        window.location.href = user ? 'scraper-maps' : 'signup';
-      });
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+
+// Firebase config — same as signup.js
+const firebaseConfig = {
+  apiKey: "AIzaSyDicDUXBt2tQUFM0lbaoTi0MMRWJnFFjew",
+  authDomain: "data-scraping-fe855.firebaseapp.com",
+  projectId: "data-scraping-fe855",
+  appId: "1:188193730231:web:91f6723f8115350c946732"
+};
+
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+// Add event listener to Try button
+document.getElementById('tryButton').addEventListener('click', (e) => {
+  e.preventDefault(); // prevent default anchor behavior
+
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+
+      window.location.href = "/scraper-maps";
+    } else {
+      
+      window.location.href = "/signup";
     }
-  
+  });
+});
